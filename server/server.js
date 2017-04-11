@@ -12,9 +12,9 @@ const app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
 
 // MIDDLEWARE FOR EVERYTHING TO PASS THROUGH ================
-// app.use(bodyPaser.json());
-// app.use(express.static(`${__dirname}./../public`));
-// app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(`${__dirname}./../public`));
+app.use(cors());
 // app.use(session({
 //     secret: process.env.SESSION_SECRET,
 //     saveUninitialized: false,
@@ -28,5 +28,5 @@ app.set('port', process.env.PORT || 3000);
 
 // LISTENING ON PORT ===============================
 app.listen(app.get('port'), () => {
-    console.log('Vestid is running on port', app.get('port'));
+    console.log('Vestid App running on port', app.get('port'));
 });
