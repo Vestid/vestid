@@ -7,11 +7,11 @@ const nodemon = require('nodemon');
 
 // File Paths ====================================
 const basePath = './public/app';
-const css_normalize = `${basePath}/styles/normalize.css`;
+const normalizePath = `${basePath}/styles/normalize.css`;
 
 const paths = {
     jsSrc: [`${basePath}/app.js`, `${basePath}/**/*.js`],
-    scssSrc: [`${css_normalize}`, `${basePath}/styles/*.scss`],
+    scssSrc: [`${normalizePath}`, `${basePath}/styles/*.scss`],
     server: './server/server.js'
 };
 
