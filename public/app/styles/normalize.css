@@ -14,6 +14,9 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
+body {
+  margin:0;
+}
 
 /* Sections
    ========================================================================== */
@@ -290,6 +293,10 @@ button:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
+}
+button, input {
+  outline: none;
+  border: none;
 }
 
 /**
