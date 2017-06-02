@@ -11,7 +11,7 @@ const normalizePath = `${basePath}/styles/normalize.css`;
 
 const paths = {
     jsSrc: [`${basePath}/app.js`, `${basePath}/**/*.js`],
-    scssSrc: [`${normalizePath}`, `${basePath}/styles/*.scss`],
+    scssSrc: [`${normalizePath}`, `${basePath}/components/**/*.scss`, `${basePath}/styles/*.scss`],
     server: './server/server.js'
 };
 

@@ -1,7 +1,14 @@
 <section class="login-form">
+    <h1><span>V</span>estid</h1>
     <form ng-submit="login(user)">
-        <input type="email" placeholder="dallin@gmail.com" ng-model="user.email">
-        <input type="password" placeholder="password" ng-model="user.password">
-        <button type="submit">Login</button>
+        <section class="nput-wrap">
+            <input type="email" placeholder="john_doe@vestid.com" ng-model="user.email">
+            <input type="password" placeholder="*********" ng-model="user.password">
+            <p>forgot password?</p>
+        </section>
+        <section class="btn-container">
+            <button type="submit">login</button>
+            <button type="button">register</button>
+        </section>
     </form>
 </section>
