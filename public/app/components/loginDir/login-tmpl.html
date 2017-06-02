@@ -2,8 +2,8 @@
     <h1><span>V</span>estid</h1>
     <form ng-submit="login(user)">
         <section class="nput-wrap">
-            <input type="email" placeholder="john_doe@vestid.com" ng-model="user.email">
-            <input type="password" placeholder="*********" ng-model="user.password">
+            <input type="email" placeholder="john_doe@vestid.com" ng-model="user.email" required="required">
+            <input type="password" placeholder="*********" ng-model="user.password" required="required">
             <p>forgot password?</p>
         </section>
         <section class="btn-container">
