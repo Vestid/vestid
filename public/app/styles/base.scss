@@ -1,4 +1,18 @@
-$navy-blue: #232F46;
-$turquoise: #5FC591;
-$lato-font: 'Lato', sans-serif;
+/* color variables */
+$v-gray: #797979;
+$hover-gray:#b7b3b3;
+$primary-blue: #0099C5;
+$off-white: #efefef;
+$box-shadow: 5px 6px 7px #b9b9b9;
+$active-green: #62FF87;
 
+/* font variables */
+$lato-font: 'Lato', sans-serif;
+$muli-font: 'Muli', sans-serif;
+$primary-font: "europa",sans-serif;
+
+/* mixins */
+@mixin btn-hover{
+  transform: scale(1.05);
+  transition: all 100ms;
+}
