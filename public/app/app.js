@@ -12,4 +12,8 @@ angular.module('vestid', ['ui.router'])
                 templateUrl: './app/views/login.html',
                 url: '/login'
             })
+          .state('register', {
+                templateUrl: './app/views/register.html',
+                url: '/register'
+          })
     });
