@@ -5,7 +5,7 @@
   width: 650px;
   box-shadow: $box-shadow;
   position: absolute;
-  left:27%;
+  left:30%;
   bottom: 50%;
   h1 {
     color: $primary-blue;
@@ -60,17 +60,33 @@
     display: flex;
     justify-content:space-between;
     width:100%;
+    margin-bottom: 20px;
     input {
       margin:0 auto;
-      border-bottom:3px solid lightgray;
+      border-bottom:1.5px solid lightgray;
       width: 60%;
+      height:40px;
+      color: $hover-gray;
+      font-size: 35px;
+      text-align: center;
+      font-weight:100;
     }
+    input::placeholder {
+      color: $hover-gray;
+      font-size: 35px;
+      text-align: center;
+      padding-bottom:-10px;
+      font-weight:100;
+    }
+
     reset {
       color:#d2d2d2;
       display: flex;
       align-items:center;
-      font-size: .8em;
+      font-size: .9em;
+      letter-spacing:1px;
       cursor: pointer;
+      margin:15px 20px 0  -50px;
       &:hover {
         color: $primary-blue;
       }
