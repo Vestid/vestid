@@ -4,11 +4,11 @@
         <section class="nput-wrap">
             <input type="email" placeholder="john_doe@vestid.com" ng-model="user.email" required="required">
             <input type="password" placeholder="*********" ng-model="user.password" required="required">
-            <p>forgot password?</p>
+            <p ui-sref="password-reset">forgot password?</p>
         </section>
         <section class="btn-container">
             <button type="submit">login</button>
-            <button type="button">register</button>
+            <button type="button" ui-sref="register">register</button>
         </section>
     </form>
 </section>
