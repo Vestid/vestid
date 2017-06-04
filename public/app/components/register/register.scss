@@ -49,4 +49,34 @@
       letter-spacing:1.2px;
     }
     }
+  #header-two-style {
+    color: $primary-blue;
+    text-align: center;
+    letter-spacing:1.2px;
+    font-size: 1.2em;
+    margin-bottom: 50px;
+  }
+  .email-form {
+    display: flex;
+    justify-content:space-between;
+    width:100%;
+    input {
+      margin:0 auto;
+      border-bottom:3px solid lightgray;
+      width: 60%;
+    }
+    reset {
+      color:#d2d2d2;
+      display: flex;
+      align-items:center;
+      font-size: .8em;
+      cursor: pointer;
+      &:hover {
+        color: $primary-blue;
+      }
+      .material-icons {
+        font-size: 18px;
+      }
+    }
+  }
   }
