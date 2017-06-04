@@ -16,4 +16,8 @@ angular.module('vestid', ['ui.router'])
                 templateUrl: './app/views/register.html',
                 url: '/register'
           })
+          .state('password-reset',{
+                templateUrl: './app/views/password-reset.html',
+                url:'/password-reset'
+          })
     });
