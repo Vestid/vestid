@@ -5,6 +5,7 @@ const express = require('express');
 const massive = require('massive');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const project_name = 'Vestid'
 
 // INITIATE EXPRESS APP & SET LISTENING PORT ================
 const app = module.exports = express();
@@ -49,5 +50,5 @@ const isAuthed = (req, res, next) => {
 
 // LISTENING ON PORT ===============================
 app.listen(app.get('port'), () => {
-    console.log('Vestid App running on port', app.get('port'));
+    console.log(`${project_name} is running on`, app.get('port'));
 });
