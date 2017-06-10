@@ -19,3 +19,11 @@ $primary-font: "europa",sans-serif;
   transform: scale(1.05);
   transition: all 100ms;
 }
+
+@mixin landing-text {
+  text-align: center;
+  font-size: 3em;
+  font-style: italic;
+  width: 50%;
+  padding-top: 265px;
+}

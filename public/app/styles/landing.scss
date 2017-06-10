@@ -4,10 +4,10 @@
 	display: flex;
 	width: 100vw;
 	height: 90vh;
+	font-family:$primary-font;
 	.center-v-wrapper {
 		position: absolute;
 		width: 100%;
-		font-family:$primary-font;
 		font-size: 40em;
 		color: $v-gray;
 			p {
@@ -17,11 +17,21 @@
 			}
 	}
 	.landing-left {
-		width: 50%;
+		color: $primary-blue;
 		background: white;
+		@include landing-text;
+		p {
+			cursor: pointer;
+			text-decoration: underline;
+		}
 	}
 	.landing-right {
-		width: 50%;
+		color: white;
 		background:$primary-blue;
+		@include landing-text;
+		p {
+			cursor: pointer;
+			text-decoration: underline;
+		}
 	}
 }
