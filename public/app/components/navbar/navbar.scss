@@ -12,6 +12,15 @@
   align-items: center;
   box-shadow: $nav-shadow;
   cursor: pointer;
+  .nav-item {
+    padding-bottom: 5px;
+    border-bottom:3px solid white;
+    font-size:20px;
+    &:hover {
+      border-bottom:3px solid $primary-blue;
+      transition: all .3s;
+  }
+  }
   nav-logo {
     span {
       color: $v-gray;

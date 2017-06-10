@@ -1,0 +1,27 @@
+@import "base";
+
+.landing-container {
+	display: flex;
+	width: 100vw;
+	height: 90vh;
+	.center-v-wrapper {
+		position: absolute;
+		width: 100%;
+		font-family:$primary-font;
+		font-size: 40em;
+		color: $v-gray;
+			p {
+				text-shadow: $v-shadow;
+				text-align: center;
+				margin:0;
+			}
+	}
+	.landing-left {
+		width: 50%;
+		background: white;
+	}
+	.landing-right {
+		width: 50%;
+		background:$primary-blue;
+	}
+}
