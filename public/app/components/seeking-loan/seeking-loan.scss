@@ -14,19 +14,25 @@
 		}
 		.form-container {
 			display: flex;
-			justify-content: center;
+			flex-direction:column;
 			padding: 15px;
 			width: 35vw;
 			height: 80vh;
 				skl-title {
+					display: flex;
+					justify-content:center;
 					color: #0099C5;
+					text-decoration: underline;
 					font-size: 2em;
-					border-bottom: 3px solid #0099C5;
 					height: 38px;
 					font-weight:bold;
 						span {
 							color: $v-gray;
+							margin-left:4px;
 						}
 				}
+			input {
+				border: 2px solid red;
+			}
 		}
 }
