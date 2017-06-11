@@ -22,17 +22,19 @@
 					display: flex;
 					justify-content:center;
 					color: #0099C5;
-					text-decoration: underline;
 					font-size: 2em;
 					height: 38px;
 					font-weight:bold;
+					margin-bottom: 10px;
 						span {
 							color: $v-gray;
 							margin-left:4px;
 						}
 				}
 			input {
-				border: 2px solid red;
+				border: 2px solid $v-gray;
+				height: 5vh;
+				margin-bottom:15px;
 			}
 		}
 }
