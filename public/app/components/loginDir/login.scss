@@ -4,17 +4,16 @@
   font-family: $muli-font;
   background: $off-white;
   height: 100vh;
-
   .login-form {
     height: 100vh;
     display: flex;
-    flex-direction:column;
-    justify-content:flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
     h1 {
       color: $primary-blue;
       text-align: center;
-      letter-spacing:2px;
-      font-weight:bold;
+      letter-spacing: 2px;
+      font-weight: bold;
       margin: 0 0 10px;
       span {
         color: $v-gray;
@@ -27,13 +26,13 @@
       width: 425px;
       height: 435px;
       align-self: center;
-      justify-content:space-between;
+      justify-content: space-between;
       margin-bottom: calc(94vh - 33%);
       box-shadow: $box-shadow;
     }
     .nput-wrap {
       display: flex;
-      flex-direction:column;
+      flex-direction: column;
       padding-top: 100px;
       input {
         margin: 0 auto 30px;
@@ -51,31 +50,31 @@
         color: white;
         font-size: 0.9rem;
         font-style: italic;
-          &:hover {
-            cursor: pointer;
-            color: $hover-gray;
-            transition: all .3s;
-          }
+        &:hover {
+          cursor: pointer;
+          color: $hover-gray;
+          transition: all .3s;
+        }
       }
     }
     .btn-container {
       display: flex;
       button {
         width: 75%;
-        height:3.25rem;
+        height: 3.25rem;
         margin: 0 auto;
         padding: 7px;
         font-size: 1.2rem;
         cursor: pointer;
-          &:hover {
-            @include btn-hover;
-          }
+        &:hover {
+          @include btn-hover;
+        }
       }
-      button:nth-child(1){
+      button:nth-child(1) {
         background: white;
         color: $v-gray;
       }
-      button:nth-child(2){
+      button:nth-child(2) {
         background: $v-gray;
         color: white;
       }

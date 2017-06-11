@@ -1,0 +1,37 @@
+@import "base";
+
+.landing-container {
+	display: flex;
+	width: 100vw;
+	height: 90vh;
+	font-family:$primary-font;
+	.center-v-wrapper {
+		position: absolute;
+		width: 100%;
+		font-size: 40em;
+		color: $v-gray;
+			p {
+				text-shadow: $v-shadow;
+				text-align: center;
+				margin:0;
+			}
+	}
+	.landing-left {
+		color: $primary-blue;
+		background: white;
+		@include landing-text;
+		p {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+	}
+	.landing-right {
+		color: white;
+		background:$primary-blue;
+		@include landing-text;
+		p {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+	}
+}

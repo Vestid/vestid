@@ -2,7 +2,7 @@
 
 .navbar-container {
   font-weight:100;
-  font-family: $primary-font;
+  font-family: $muli-font;
   font-size:22px;
   height:10vh;
   background: white;
@@ -10,7 +10,16 @@
   display: flex;
   justify-content:space-around;
   align-items: center;
-  box-shadow: $nav-shadow;
+  cursor: pointer;
+  .nav-item {
+    padding-bottom: 5px;
+    border-bottom:3px solid white;
+    font-size:20px;
+    &:hover {
+      border-bottom:3px solid $primary-blue;
+      transition: all .3s;
+  }
+  }
   nav-logo {
     span {
       color: $v-gray;
