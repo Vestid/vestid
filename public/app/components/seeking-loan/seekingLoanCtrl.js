@@ -14,11 +14,6 @@ angular.module('vestid').controller('seekingLoanCtrl', ($scope) => {
 		{ type: 'Food' },
 		{ type: 'Creative' },
 		{ type: 'Retail' }
-
-	]
-
-	$scope.slform = (slf) => {
-		console.log(slf)
-	}
+	];
 
 });
