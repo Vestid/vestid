@@ -24,4 +24,8 @@ angular.module('vestid', ['ui.router'])
             templateUrl: './app/views/seeking-loan.html',
             url: '/seeking-loan'
           })
+          .state('offering-loan', {
+            templateUrl: './app/views/offering-loan.html',
+            url: '/offering-loan'
+          })
     });
