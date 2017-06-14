@@ -9,10 +9,11 @@
 			font-size: 1.5em;
 			border: 3px solid $primary-blue;
 			display: flex;
-			height: 90%;
-			width: 45vw;
+			max-width: 35vw;
+			max-height:70vh;
+			margin-top: 35px;
 		}
-		.form-container {
+		form {
 			display: flex;
 			flex-direction:column;
 			padding: 15px;
@@ -31,10 +32,16 @@
 							margin-left:4px;
 						}
 				}
-			input {
+			input, select, textarea {
 				border: 2px solid $v-gray;
 				height: 5vh;
 				margin-bottom:15px;
+				padding-left: 15px;
+				font-size: 1.1em;
+			}
+			#textarea-style {
+				height: 20vh;
+				padding: 10px;
 			}
 		}
 }
