@@ -20,7 +20,9 @@
 		<skl-title><span>S</span>eeking  <span>L</span>oan  <span>F</span>orm</skl-title>
 		<input type="text" ng-model="slf.firstname" placeholder="John">
 		<input type="text" ng-model="slf.lastname" placeholder="Doe">
-		<select ng-model="slf.loanamount" ng-options="(loan.price | currency) for loan in loans"></select>
+		<select ng-model="slf.loanamount" ng-options="(loan.price | currency) for loan in loans">
+			<option value="">${{loans[0].price}}</option>
+		</select>
 		<input type="email" ng-model="slf.email" placeholder="john_doa@example.com">
 		<input type="text" ng-model="slf.location" placeholder="UT">
 		<select ng-model="slf.businesstype" ng-options="businessType.type for businessType in businessTypes"></select>
