@@ -15,7 +15,7 @@ const paths = {
     server: './server/server.js'
 };
 
-// DEFINE TASKS ===================================
+// DEFINE TASKS =================================== 
 gulp.task('server', () => {
     nodemon({
         'script': paths.server

@@ -1,0 +1,61 @@
+@import "../../styles/base";
+
+.seeking-loan-container {
+	display: flex;
+	justify-content:space-around;
+	font-family:$primary-font;
+		skl-left-details {
+			padding:20px;
+			font-size: 1.5em;
+			border: 3px solid $primary-blue;
+			display: flex;
+			max-width: 35vw;
+			max-height:70vh;
+			margin-top: 45px;
+			p {
+				margin:0;
+				text-align: justify;
+			}
+		}
+		form {
+			display: flex;
+			flex-direction:column;
+			padding: 15px;
+			width: 35vw;
+			height: 80vh;
+				skl-title {
+					display: flex;
+					justify-content:center;
+					color: #0099C5;
+					font-size: 2em;
+					height: 38px;
+					font-weight:bold;
+					margin-bottom: 10px;
+						span {
+							color: $v-gray;
+							margin-left:4px;
+						}
+				}
+			input, select, textarea {
+				border: 2px solid $v-gray;
+				height: 5vh;
+				margin-bottom:15px;
+				padding-left: 15px;
+				font-size: 1.1em;
+				color: $primary-blue;
+			}
+			#textarea-style {
+				height: 20vh;
+				padding: 10px;
+			}
+			button {
+				cursor: pointer;
+				color: $primary-blue;
+				background: transparent;
+				text-align: left;
+				font-size: 1.1em;
+				margin-top: 10px;
+				display: flex;
+			}
+		}
+}
