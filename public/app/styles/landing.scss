@@ -28,6 +28,7 @@
 	.landing-right {
 		color: white;
 		background:$primary-blue;
+		box-shadow: $right-shadow;
 		@include landing-text;
 		p {
 			cursor: pointer;
