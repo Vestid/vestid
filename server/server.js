@@ -44,8 +44,15 @@ const db = app.get('db');
 //  if(!req.isAuthenticated()) return res.status(401).send();
 //  return next()
 //};
+const check = (req, res, next) =>{
+  const user = 'dallin'
+  if(!req.session.user){
+    req.session.user = user;
+  }
+  next()
+}
 
-app.get('/api/defaultmail', defaultMail)
+app.get('/api/defaultmail', check, defaultMail)
 
 
 
