@@ -5,6 +5,8 @@ const express = require('express');
 const massive = require('massive');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const nodemailer = require('nodemailer');
+const { defaultMail } = require('./nodemailer/mailers/default')
 const project_name = 'Vestid'
 
 
@@ -38,12 +40,12 @@ const db = app.get('db');
 
 
 // AUTH POLICY ================================
-const isAuthed = (req, res, next) => {
-  if(!req.isAuthenticated()) return res.status(401).send();
-  return next()
-};
+//const isAuthed = (req, res, next) => {
+//  if(!req.isAuthenticated()) return res.status(401).send();
+//  return next()
+//};
 
-
+app.get('/api/defaultmail', defaultMail)
 
 
 
