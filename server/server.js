@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const project_name = 'Vestid'
 
+
 // INITIATE EXPRESS APP & SET LISTENING PORT ================
 const app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
@@ -41,7 +42,6 @@ const isAuthed = (req, res, next) => {
   if(!req.isAuthenticated()) return res.status(401).send();
   return next()
 };
-
 
 
 
