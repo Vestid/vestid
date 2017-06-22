@@ -1,0 +1,63 @@
+@import "../../styles/base";
+.offering-loan-container {
+	display: flex;
+	justify-content: space-around;
+	font-family: $primary-font;
+	background: $primary-blue;
+	height: 90vh;
+	ofl-left-details {
+		padding: 20px;
+		font-size: 1.5em;
+		border: 3px solid $v-gray;
+		display: flex;
+		max-width: 35vw;
+		max-height: 70vh;
+		margin-top: 45px;
+		background: white;
+		p {
+			color: #95989A;
+			margin: 0;
+			text-align: justify;
+		}
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		padding: 15px;
+		width: 35vw;
+		height: 80vh;
+		justify-content: center;
+		margin-top: -100px;
+		ofl-title {
+			display: flex;
+			justify-content: center;
+			color: white;
+			font-size: 2em;
+			height: 38px;
+			font-weight: bold;
+			margin-bottom: 10px;
+			letter-spacing: 1.5px;
+			span {
+				color: $v-gray;
+				margin-left: 4px;
+			}
+		}
+		input, select {
+			border: 2px solid $v-gray;
+			height: 5vh;
+			margin-bottom: 15px;
+			padding-left: 15px;
+			font-size: 1.1em;
+			color: $primary-blue;
+		}
+		button {
+			cursor: pointer;
+			color: white;
+			background: transparent;
+			text-align: left;
+			font-size: 1.1em;
+			margin-top: 10px;
+			display: flex;
+		}
+	}
+}

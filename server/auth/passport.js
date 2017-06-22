@@ -2,8 +2,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 
-const app = require('../server');
-const db = app.get('db');
+//const app = require('../server');
+//const db = app.get('db');
 
 const verifyPW = (submittedPW, userPW) => {
   return bcrypt.compareSync(submittedPW, userPW);
