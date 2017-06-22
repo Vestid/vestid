@@ -3,7 +3,6 @@ const cors = require('cors');
 const path = require('path');
 const express = require('express');
 const massive = require('massive');
-const massifier = require('dm-massifier')(process.env.ESQL_DB);
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
@@ -17,7 +16,6 @@ app.set('port', process.env.PORT || 3000);
 
 // MIDDLEWARE FOR EVERYTHING TO PASS THROUGH ================
 app.use(bodyParser.json());
-app.use(massifier.middleware());
 app.use(express.static(`${__dirname}./../public`));
 app.use(cors());
 
@@ -25,12 +23,12 @@ app.use(cors());
 const passport = require('./auth/passport');
 
 // MASSIVE DB ==========================================
-//massive(process.env.ESQL_DB).then(db => {
-//app.set('db', db)
-//}).catch((err) => {
-//	console.log(err)
-//})
-
+massive(process.env.ESQL_DB).then(db => {
+  app.set('db', db)
+}).catch((err) => {
+	console.log(err)
+})
+// EXPRESS SESSIONS =====================================
 app.use(session({
   secret: process.env.SESSION_SECRET,
   saveUninitialized: false,
