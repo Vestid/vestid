@@ -43,6 +43,9 @@ app.post('/api/login', passport.authenticate('local', {
 }));
 
 app.get('/api/defaultmail', defaultMail)
+app.post('/api/register', (req, res, next)=> {
+	console.log(req.body)
+})
 
 
 // LISTENING ON PORT ===============================

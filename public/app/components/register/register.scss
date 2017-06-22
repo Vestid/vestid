@@ -58,11 +58,10 @@
 			input::placeholder {
 				padding: 7px;
 			}
-			p {
+			#password-check {
 				text-align: right;
-				margin: -15px 65px;
-				text-decoration: underline;
-				color: $login-gray;
+				margin: -20px 50px 10px;
+				color: $invalid-red;
 				font-size: 0.9rem;
 				font-style: italic;
 				&:hover {
@@ -84,11 +83,14 @@
 				background: white;
 				color: $v-gray;
 				&:hover {
-					background: #61b960;
+					background: $hover-green;
 					color: white;
 				}
 			}
 		}
 	}
+}
+.nomatch{
+	border: 2px solid $invalid-red;
 }
 

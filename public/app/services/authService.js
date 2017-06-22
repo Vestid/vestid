@@ -10,4 +10,14 @@ angular.module('vestid').service('authService', function($http){
 		})
 	}
 
+	this.registerUser = (user) => {
+		return $http({
+			url: '/api/register',
+			method: 'POST',
+			data: user
+		}).then(res => {
+			console.log('reguserService: ', res)
+		})
+	}
+
 });
