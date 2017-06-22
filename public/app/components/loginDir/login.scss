@@ -30,10 +30,25 @@
       margin-bottom: calc(94vh - 33%);
       box-shadow: $box-shadow;
     }
+    return {
+      color: $login-gray;
+      cursor: pointer;
+      display: flex;
+      padding: 5px 0 0 5px;
+      font-size: .9em;
+      letter-spacing: 1px;
+      &:hover {
+        color: white;
+      }
+      .material-icons{
+        display: flex;
+        align-self:center;
+      }
+    }
     .nput-wrap {
       display: flex;
       flex-direction: column;
-      padding-top: 100px;
+      margin-top: -35px;
       input {
         margin: 0 auto 30px;
         height: 3rem;
@@ -47,12 +62,12 @@
         text-align: right;
         margin: -15px 65px;
         text-decoration: underline;
-        color: white;
+        color: $login-gray;
         font-size: 0.9rem;
         font-style: italic;
         &:hover {
           cursor: pointer;
-          color: $hover-gray;
+          color: white;
           transition: all .3s;
         }
       }

@@ -37,14 +37,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
-
-app.get('/api/defaultmail', defaultMail)
-
+// LOCAL AUTH ENDPOINTS =========================
 app.post('/api/login', passport.authenticate('local', {
 	successRedirect: '/'
 }));
+
+app.get('/api/defaultmail', defaultMail)
+
 
 // LISTENING ON PORT ===============================
 app.listen(app.get('port'), () => {
