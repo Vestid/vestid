@@ -89,6 +89,10 @@
       button:nth-child(1) {
         background: white;
         color: $v-gray;
+        &:hover{
+          background: $hover-green;
+          color: white;
+        }
       }
       button:nth-child(2) {
         background: $v-gray;

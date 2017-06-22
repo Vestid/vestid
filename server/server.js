@@ -6,7 +6,6 @@ const massive = require('massive');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
-const { defaultMail } = require('./nodemailer/mailers/default')
 const project_name = 'Vestid'
 
 
@@ -37,17 +36,17 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// SERVER CONTROLLERS ======================
+const { registerUser } = require('./controllers/userCtrl');
+const { defaultMail } = require('./nodemailer/mailers/default');
+
 // LOCAL AUTH ENDPOINTS =========================
 app.post('/api/login', passport.authenticate('local', {
 	successRedirect: '/'
 }));
 
 app.get('/api/defaultmail', defaultMail)
-app.post('/api/register', (req, res, next)=> {
-	console.log(req.body)
-})
-
-
+app.post('/api/register', registerUser)
 // LISTENING ON PORT ===============================
 app.listen(app.get('port'), () => {
     console.log(`${project_name} is running on`, app.get('port'));
