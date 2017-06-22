@@ -6,7 +6,7 @@ const massive = require('massive');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
-const project_name = 'Vestid'
+const project_name = 'Vestid';
 
 
 // INITIATE EXPRESS APP & SET LISTENING PORT ================
@@ -47,6 +47,7 @@ app.post('/api/login', passport.authenticate('local', {
 
 app.get('/api/defaultmail', defaultMail)
 app.post('/api/register', registerUser)
+
 // LISTENING ON PORT ===============================
 app.listen(app.get('port'), () => {
     console.log(`${project_name} is running on`, app.get('port'));
