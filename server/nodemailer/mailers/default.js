@@ -8,9 +8,6 @@ let transporter = nodemailer.createTransport({
 	auth: {
 		user: process.env.MAILER_USER,
 		pass: process.env.MAILER_PASS
-	},
-	header: {
-		'x-my-key': 'dallin'
 	}
 });
 

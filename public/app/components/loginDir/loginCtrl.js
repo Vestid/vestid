@@ -1,7 +1,9 @@
-angular.module('vestid').controller('loginCtrl', ($scope) => {
+angular.module('vestid').controller('loginCtrl', ($scope, authService) => {
 
 	$scope.login = (user) => {
-		console.log(user);
+		authService.loginUser(user).then(res => {
+			console.log("LoginCtrl: ", res)
+		})
 	}
 
 });
