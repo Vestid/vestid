@@ -6,7 +6,10 @@ angular.module('vestid').service('authService', function($http){
 			method: 'POST',
 			data: user
 		}).then(res => {
-			console.log("AuthService: ", res)
+			return res
+		}).catch(err => {
+			console.log("login Err: ", err)
+			return err
 		})
 	}
 
@@ -15,8 +18,23 @@ angular.module('vestid').service('authService', function($http){
 			url: '/api/register',
 			method: 'POST',
 			data: user
+		}).then(({data}) => {
+			return data
+		}).catch(err => {
+			console.log("regUser ERR: ", err)
+			return err
+		})
+	}
+
+	this.currentUser = () => {
+		return $http({
+			url: '/api/success',
+			method: 'GET'
 		}).then(res => {
-			console.log('reguserService: ', res)
+			return res
+		}).catch(err => {
+			console.log("currentUser Err: ", err)
+			return err
 		})
 	}
 

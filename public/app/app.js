@@ -6,7 +6,15 @@ angular.module('vestid', ['ui.router'])
         $stateProvider
             .state('landing', {
                 templateUrl: './app/views/landing.html',
-                url:'/'
+                url:'/',
+	              controller: 'landingCtrl',
+		            resolve: {
+			            user: authService => {
+				            return authService.currentUser().then(user => {
+				              return user
+				            })
+			            }
+		            }
             })
             .state('login', {
                 templateUrl: './app/views/login.html',

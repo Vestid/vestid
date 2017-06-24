@@ -27,6 +27,14 @@ massive(process.env.ESQL_DB).then(db => {
 }).catch((err) => {
 	console.log(err)
 })
+
+// MIDDLEWARE POLICY =============================
+const checkAuthed = (req, res, next) => {
+	if(!req.isAuthenticated()) return res.status(300).send("Unauthorized");
+	console.log("I'm authed")
+	return next();
+};
+
 // EXPRESS SESSIONS =====================================
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -37,16 +45,21 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // SERVER CONTROLLERS ======================
-const { registerUser } = require('./controllers/userCtrl');
+const { registerUser, successUser } = require('./controllers/userCtrl');
 const { defaultMail } = require('./nodemailer/mailers/default');
+
 
 // LOCAL AUTH ENDPOINTS =========================
 app.post('/api/login', passport.authenticate('local', {
-	successRedirect: '/'
+	successRedirect: '/success',
 }));
+app.get('/success', checkAuthed, successUser)
+app.get('/api/current-user', checkAuthed)
+app.post('/api/register', registerUser)
+
+
 
 app.get('/api/defaultmail', defaultMail)
-app.post('/api/register', registerUser)
 
 // LISTENING ON PORT ===============================
 app.listen(app.get('port'), () => {

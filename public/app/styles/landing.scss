@@ -10,6 +10,7 @@
 		width: 100%;
 		font-size: 40em;
 		color: $v-gray;
+		cursor: default;
 			p {
 				text-shadow: $v-shadow;
 				text-align: center;
@@ -21,6 +22,8 @@
 		background: white;
 		@include landing-text;
 		p {
+			position: relative;
+			z-index: 100;
 			cursor: pointer;
 			text-decoration: underline;
 		}
@@ -31,6 +34,8 @@
 		box-shadow: $right-shadow;
 		@include landing-text;
 		p {
+			position: relative;
+			z-index: 100;
 			cursor: pointer;
 			text-decoration: underline;
 		}

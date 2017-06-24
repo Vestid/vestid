@@ -3,7 +3,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 
 const app = require('../server');
-const db = app.get('db');
 
 const verifyPW = (submittedPW, userPW) => {
   return bcrypt.compareSync(submittedPW, userPW);
@@ -13,23 +12,22 @@ passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 }, (email, password, done) => {
-  console.log(db)
-    //db.login_user([email], (err, user) => {
-    //    user = user[0];
-    //    if(err) done(err);
-    //    if(!user) return done(null, false);
-    //    if(verifyPW(password, user.password)) return done(null, user);
-    //    return done(null, false);
-    //})
+		app.get('db').check_by_email([email]).then(user => {
+	    user = user[0];
+	    if(!user) return done("User Not Found", false);
+	    if(verifyPW(password, user.password)) return done(null, user);
+	    return done("Invalid Credentials", false);
+    })
 }))
 
 passport.serializeUser((user, done) =>{
-  console.log('Serializing User', user);
-  done(null, user.id);
+ return done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('Deserializing User', id);
+	app.get('db').user_search_id([id]).then(response => {
+		return done(null, response)
+	})
 });
 
 module.exports = passport;
