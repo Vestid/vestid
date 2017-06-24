@@ -28,7 +28,7 @@ angular.module('vestid').service('authService', function($http){
 
 	this.currentUser = () => {
 		return $http({
-			url: '/api/success',
+			url: '/success',
 			method: 'GET'
 		}).then(res => {
 			return res

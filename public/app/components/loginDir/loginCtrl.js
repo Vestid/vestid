@@ -2,8 +2,7 @@ angular.module('vestid').controller('loginCtrl', ($scope, authService, $state) =
 
 	$scope.login = (user) => {
 		authService.loginUser(user).then(({data}) => {
-			if(!data){
-				alert('user not found')
+			if(data === "Unauthorized"){
 			}
 			$state.go('landing')
 		})

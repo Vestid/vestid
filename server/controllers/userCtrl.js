@@ -10,15 +10,15 @@ hashPW = (password) => {
 
 exports.registerUser = (req, res, next) => {
 	console.log(req.body)
-	//const db = app.get('db');
-	//const { firstname, lastname, email, password } = req.body
-	//const pw = hashPW(password)
-	//db.register_user([firstname, lastname, email, pw]).then(response => {
-	//	//const {}
-	//	if(!user) return res.status(404).send("User Not Found")
-	//
-	//	console.log(response)
-	//})
+	const db = app.get('db');
+	const { firstname, lastname, email, password } = req.body
+	const pw = hashPW(password)
+	db.register_user([firstname, lastname, email, pw]).then(user => {
+		//const {}
+		if(!user) return res.status(404).send("User Not Found")
+
+		console.log(user)
+	})
 }
 
 exports.successUser = (req, res, next) => {
