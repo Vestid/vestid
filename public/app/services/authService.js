@@ -8,7 +8,6 @@ angular.module('vestid').service('authService', function($http){
 		}).then(res => {
 			return res.data
 		}).catch(error => {
-			console.log("login Err: ", error)
 			return error
 		})
 	}
