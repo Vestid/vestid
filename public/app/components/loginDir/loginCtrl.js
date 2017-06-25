@@ -6,7 +6,8 @@ angular.module('vestid').controller('loginCtrl', ($scope, authService, $state) =
 			let {data} = user
 			if (data === "Unauthorized") {
 				$scope.invalid = true;
-				$scope.user = ''
+				$scope.user.email = ''
+				$scope.user.password = ''
 			} else {
 				let {firstname} = user[0]
 				$state.go('landing', {id: firstname})	
