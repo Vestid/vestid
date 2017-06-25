@@ -1,4 +1,4 @@
-angular.module('vestid').controller('registerCtrl', ($scope, authService) => {
+angular.module('vestid').controller('registerCtrl', ($scope, authService, $state) => {
 
 	$scope.matchDefault = false;
 		
@@ -9,7 +9,11 @@ angular.module('vestid').controller('registerCtrl', ($scope, authService) => {
 			$scope.user.passwordtwo = ''
 		} else {
 			authService.registerUser(user).then(res => {
-				console.log("regCtrl: ", res)
+				if(res.status === 409){
+					console.log("user exists")
+				} else if(res.status === 200){
+					$state.go('login')
+				}
 			})
 		}
 	}

@@ -18,7 +18,7 @@ exports.registerUser = (req, res, next) => {
 		console.log("Length: ", user.length)
 		if(user.length > 1) {
 			console.log("Exists: ", user)
-				return res.status(200).send("Email already in Use")
+				return res.status(409).send()
 		} else {
 			db.register_user([firstname, lastname, email, pw]).then(user => {
 				console.log("Created: ", user)

@@ -17,10 +17,9 @@ angular.module('vestid').service('authService', function($http){
 			url: '/api/register',
 			method: 'POST',
 			data: user
-		}).then(({data}) => {
+		}).then(data => {
 			return data
 		}).catch(err => {
-			console.log("regUser ERR: ", err)
 			return err
 		})
 	}

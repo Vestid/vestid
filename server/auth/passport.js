@@ -16,7 +16,7 @@ passport.use(new LocalStrategy({
 	    user = user[0];
 	    if(!user) return done(null, false)
 	    if(verifyPW(password, user.password)) return done(null, user);
-	    return done("Invalid Credentials", false);
+	    return done(null, false);
     })
 }))
 
