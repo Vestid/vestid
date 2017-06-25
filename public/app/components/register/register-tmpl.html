@@ -1,0 +1,20 @@
+<section class="register-form">
+	<h1><span>V</span>estid</h1>
+	<form ng-submit="register(user)">
+		<return>
+			<i class="material-icons">keyboard_arrow_left</i>
+			<p ui-sref="login">return</p>
+		</return>
+		<section class="nput-wrap">
+			<input type="text" placeholder="first name" ng-model="user.firstname" required="required">
+			<input type="text" placeholder="last name" ng-model="user.lastname" required="required">
+			<input type="email" placeholder="john_doe@vestid.com" ng-model="user.email" required="required">
+			<input type="password" placeholder="*********" ng-model="user.password" required="required" ng-class="{nomatch: matchDefault}">
+			<input type="password" placeholder="*********" ng-model="user.passwordtwo" required="required" ng-class="{nomatch: matchDefault}">
+			<p id="password-check" ng-show="matchDefault">password didn't match</p>
+		</section>
+		<section class="btn-container">
+			<button type="submit">register</button>
+		</section>
+	</form>
+</section>

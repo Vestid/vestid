@@ -3,12 +3,10 @@ const cors = require('cors');
 const path = require('path');
 const express = require('express');
 const massive = require('massive');
-const massifier = require('dm-massifier')(process.env.ESQL_DB);
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
-const { defaultMail } = require('./nodemailer/mailers/default')
-const project_name = 'Vestid'
+const project_name = 'Vestid';
 
 
 // INITIATE EXPRESS APP & SET LISTENING PORT ================
@@ -17,7 +15,6 @@ app.set('port', process.env.PORT || 3000);
 
 // MIDDLEWARE FOR EVERYTHING TO PASS THROUGH ================
 app.use(bodyParser.json());
-app.use(massifier.middleware());
 app.use(express.static(`${__dirname}./../public`));
 app.use(cors());
 
@@ -25,12 +22,19 @@ app.use(cors());
 const passport = require('./auth/passport');
 
 // MASSIVE DB ==========================================
-//massive(process.env.ESQL_DB).then(db => {
-//app.set('db', db)
-//}).catch((err) => {
-//	console.log(err)
-//})
+massive(process.env.ESQL_DB).then(db => {
+  app.set('db', db)
+}).catch((err) => {
+	console.log("massive DB Error: ", err)
+})
 
+// MIDDLEWARE POLICY =============================
+const checkAuthed = (req, res, next) => {
+	if(!req.isAuthenticated()) return res.status(401).send("Unauthorized");
+	return next();
+};
+
+// EXPRESS SESSIONS =====================================
 app.use(session({
   secret: process.env.SESSION_SECRET,
   saveUninitialized: false,
@@ -39,14 +43,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// SERVER CONTROLLERS ======================
+const { registerUser, successUser } = require('./controllers/userCtrl');
+const { defaultMail } = require('./nodemailer/mailers/default');
+
+
+// LOCAL AUTH ENDPOINTS =========================
+app.post('/api/login', passport.authenticate('local', {
+	successRedirect: '/success',
+}));
+app.get('/success', checkAuthed, successUser)
+app.get('/api/current-user', checkAuthed)
+app.post('/api/register', registerUser)
 
 
 
 app.get('/api/defaultmail', defaultMail)
-
-app.post('/api/login', passport.authenticate('local', {
-	successRedirect: '/'
-}));
 
 // LISTENING ON PORT ===============================
 app.listen(app.get('port'), () => {
