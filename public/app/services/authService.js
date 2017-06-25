@@ -6,10 +6,10 @@ angular.module('vestid').service('authService', function($http){
 			method: 'POST',
 			data: user
 		}).then(res => {
-			return res
-		}).catch(err => {
-			console.log("login Err: ", err)
-			return err
+			return res.data
+		}).catch(error => {
+			console.log("login Err: ", error)
+			return error
 		})
 	}
 

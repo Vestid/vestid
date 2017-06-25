@@ -25,13 +25,12 @@ const passport = require('./auth/passport');
 massive(process.env.ESQL_DB).then(db => {
   app.set('db', db)
 }).catch((err) => {
-	console.log(err)
+	console.log("massive DB Error: ", err)
 })
 
 // MIDDLEWARE POLICY =============================
 const checkAuthed = (req, res, next) => {
 	if(!req.isAuthenticated()) return res.status(401).send("Unauthorized");
-	console.log("I'm authed")
 	return next();
 };
 

@@ -9,23 +9,20 @@ hashPW = (password) => {
 };
 
 exports.registerUser = (req, res, next) => {
-	console.log(req.body)
+	console.log("Reg User: ",req.body)
 	const db = app.get('db');
 	const { firstname, lastname, email, password } = req.body
 	const pw = hashPW(password)
 	db.register_user([firstname, lastname, email, pw]).then(user => {
-		//const {}
 		if(!user) return res.status(404).send("User Not Found")
-
-		console.log(user)
+		console.log("User found: ",user)
 	})
 }
 
 exports.successUser = (req, res, next) => {
-	console.log("Success: ", req)
 	const {user} = req;
 	if(!user) return res.status(401).send("User Not Found")
 	delete user[0].password
-	console.log("pwremoved: ", user)
+	delete user[0].email
 	return res.status(200).send(user)
 }

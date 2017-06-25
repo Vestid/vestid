@@ -6,9 +6,10 @@
             <p ui-sref="landing">return</p>
         </return>
         <section class="nput-wrap">
-            <input type="email" placeholder="john_doe@vestid.com" ng-model="user.email" required="required">
-            <input type="password" placeholder="*********" ng-model="user.password" required="required">
+            <input type="email" placeholder="john_doe@vestid.com" ng-model="user.email" required="required" ng-class="{red: invalid}">
+            <input type="password" placeholder="*********" ng-model="user.password" required="required" ng-class="{red: invalid}">
             <p ui-sref="password-reset">forgot password?</p>
+            <p id="invalid-login" ng-show="invalid">invalid credentials</p>
         </section>
         <section class="btn-container">
             <button type="submit">login</button>

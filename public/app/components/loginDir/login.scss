@@ -59,6 +59,11 @@
       input::placeholder {
         padding: 7px;
       }
+      #invalid-login{
+        color: red;
+        margin: 25px 65px;
+        text-decoration: none;
+      }
       p {
         text-align: right;
         margin: -15px 65px;
@@ -101,4 +106,8 @@
     }
   }
 }
+.red{
+  border: 2px solid $invalid-red;
+}
+
 
