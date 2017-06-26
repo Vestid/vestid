@@ -21,14 +21,11 @@ passport.use(new LocalStrategy({
 }))
 
 passport.serializeUser((user, done) =>{
-	console.log("Serial: ", user)
  return done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-	console.log("deserial: ", id)
 	app.get('db').user_search_id([id]).then(response => {
-		console.log("Deserial: ", response)
 		return done(null, response)
 	})
 });

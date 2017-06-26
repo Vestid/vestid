@@ -14,14 +14,10 @@ exports.registerUser = (req, res, next) => {
 	const pw = hashPW(password)
 
 	db.check_by_email([email]).then(user => {
-		console.log("Check: ", user)
-		console.log("Length: ", user.length)
 		if(user.length > 1) {
-			console.log("Exists: ", user)
 				return res.status(409).send()
 		} else {
 			db.register_user([firstname, lastname, email, pw]).then(user => {
-				console.log("Created: ", user)
 				if (!user) return res.status(404).send("User Not Found")
 				return res.status(200).send('Account Created')
 			})
