@@ -18,6 +18,7 @@ exports.registerUser = (req, res, next) => {
 				return res.status(409).send()
 		} else {
 			db.register_user([firstname, lastname, email, pw]).then(user => {
+				console.log(user)
 				if (!user) return res.status(404).send("User Not Found")
 				return res.status(200).send('Account Created')
 			})

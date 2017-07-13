@@ -9,7 +9,7 @@ angular.module('vestid').controller('loginCtrl', ($scope, authService, $state) =
 				$scope.user.email = ''
 				$scope.user.password = ''
 			} else {
-				let {firstname} = user[0]
+				let { firstname } = user[0]
 				$state.go('landing', {id: firstname})	
 			}
 		})
