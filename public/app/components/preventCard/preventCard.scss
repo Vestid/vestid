@@ -1,11 +1,12 @@
 @import "../../styles/base";
 
 .prevent-container {
-	margin-top: 10%;
+	margin-top: 40%;
 	padding: 20px;
 	font-size: 1.5em;
 	border: 2px solid $login-gray;
 	color: $v-gray;
+	background: white;
 	span{
 		cursor: pointer;
 		color: $primary-blue;
