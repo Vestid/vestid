@@ -22,14 +22,13 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^3.1.0",
     "massive": "^3.0.0-rc1",
+    "node-sass": "^4.5.3",
     "nodemailer": "^4.0.1",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
   },
-  "devDependencies": {
-    "node-sass": "^4.5.3"
-  },
+  "devDependencies": {},
   "bugs": {
     "url": "https://github.com/Vestid/vestid/issues"
   },
