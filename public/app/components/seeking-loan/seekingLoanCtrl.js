@@ -1,5 +1,10 @@
-angular.module('vestid').controller('seekingLoanCtrl', ($scope) => {
+angular.module('vestid').controller('seekingLoanCtrl', ($scope, authService) => {
 
+	authService.currentUser().then(({data}) => {
+		(data === 'Unauthorized') ? $scope.authorized = false : $scope.authorized = true;
+		(data === 'Unauthorized') ? $scope.unauthorized = true : $scope.unauthorized = false;
+	})
+	
 	$scope.loans = [
 		{ price: 500 },
 		{ price: 750 },

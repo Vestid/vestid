@@ -7,7 +7,7 @@ angular.module('vestid', ['ui.router'])
 			.state('landing', {
 				templateUrl: './app/views/landing.html',
 				url: '/?user/:id',
-				controller: 'landingCtrl',
+				controller: 'landingCtrl'
 			})
 			.state('login', {
 				templateUrl: './app/views/login.html',
@@ -23,7 +23,8 @@ angular.module('vestid', ['ui.router'])
 			})
 			.state('seeking-loan', {
 				templateUrl: './app/views/seeking-loan.html',
-				url: '/seeking-loan'
+				url: '/seeking-loan',
+				controller: 'seekingLoanCtrl'
 			})
 			.state('offering-loan', {
 				templateUrl: './app/views/offering-loan.html',

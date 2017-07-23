@@ -15,10 +15,9 @@ exports.registerUser = (req, res, next) => {
 
 	db.check_by_email([email]).then(user => {
 		if(user.length > 1) {
-				return res.status(409).send()
+			return res.status(409).send()
 		} else {
 			db.register_user([firstname, lastname, email, pw]).then(user => {
-				console.log(user)
 				if (!user) return res.status(404).send("User Not Found")
 				return res.status(200).send('Account Created')
 			})
@@ -31,5 +30,6 @@ exports.successUser = (req, res, next) => {
 	if(!user) return res.status(401).send("User Not Found")
 	delete user[0].password
 	delete user[0].email
+	req.session.user = user
 	return res.status(200).send(user)
 }

@@ -28,12 +28,8 @@ angular.module('vestid').service('authService', function($http){
 		return $http({
 			url: '/success',
 			method: 'GET'
-		}).then(res => {
-			return res
-		}).catch(err => {
-			console.log("currentUser Err: ", err)
-			return err
-		})
+		}).then(res => res)
+			.catch(err => err)
 	}
 
 });
