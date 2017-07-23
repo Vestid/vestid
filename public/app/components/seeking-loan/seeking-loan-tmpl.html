@@ -14,7 +14,8 @@
 		Ad architecto, dolor eius, error et fuga impedit minima mollitia neque numquam odio quam quibusdam recusandae reiciendis reprehenderit sit veniam.
 		</p>
 	</skl-left-details>
-	<form ng-submit="slform(slf)">
+
+	<form ng-submit="slform(slf)" ng-if="authorized">
 		<skl-title><span>S</span>eeking  <span>L</span>oan  <span>F</span>orm</skl-title>
 		<input type="text" ng-model="slf.firstname" placeholder="John">
 		<input type="text" ng-model="slf.lastname" placeholder="Doe">
@@ -27,4 +28,5 @@
 		<textarea cols="30" rows="10" ng-model="slf.description" id="textarea-style"></textarea>
 		<button type="submit">Submit <i class="material-icons">keyboard_arrow_right</i></button>
 	</form>
+	
 </section>

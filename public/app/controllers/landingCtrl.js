@@ -6,4 +6,5 @@ angular.module('vestid').controller('landingCtrl', ($scope, $stateParams) => {
 		$scope.removeUser = !$scope.removeUser
 		$scope.user = $stateParams.id
 	}
+
 })

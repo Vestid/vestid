@@ -30,6 +30,7 @@ massive(process.env.ESQL_DB).then(db => {
 
 // MIDDLEWARE POLICY ===================================
 const checkAuthed = (req, res, next) => {
+	console.log("AuthCheck: ", req.session.user)
 	if(!req.isAuthenticated()) return res.status(401).send("Unauthorized")
 	return next()
 };
