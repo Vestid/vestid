@@ -36,6 +36,8 @@
   "homepage": "https://github.com/Vestid/vestid#readme",
   "description": "Application for investing in local business",
   "scripts": {
+    "start": "node server/server.js",
+    "postinstall": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
