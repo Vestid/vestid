@@ -1,8 +1,9 @@
 angular.module('vestid').controller('seekingLoanCtrl', ($scope, authService) => {
 
-	authService.currentUser().then(({data}) => {
-		(data === 'Unauthorized') ? $scope.authorized = false : $scope.authorized = true;
-		(data === 'Unauthorized') ? $scope.unauthorized = true : $scope.unauthorized = false;
+	authService.currentUser().then((res) => {
+		(res.data === 'Unauthorized') ? $scope.authorized = false : $scope.authorized = true;
+		(res.data === 'Unauthorized') ? $scope.unauthorized = true : $scope.unauthorized = false;
+		$scope.userId = res.data[0].id
 	})
 	
 	$scope.loans = [

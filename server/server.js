@@ -22,18 +22,12 @@ app.use(cors());
 const passport = require('./auth/passport')
 
 // MASSIVE DB ==========================================
-massive(process.env.ESQL_DB).then(db => {
-  app.set('db', db)
-}).catch((err) => {
-	console.log("massive DB Error: ", err)
-})
+massive(process.env.ESQL_DB)
+	.then(db => app.set('db', db))
+	.catch((err) => console.log("massive DB Error: ", err))
 
 // MIDDLEWARE POLICY ===================================
-const checkAuthed = (req, res, next) => {
-	console.log("AuthCheck: ", req.session.user)
-	if(!req.isAuthenticated()) return res.status(401).send("Unauthorized")
-	return next()
-};
+const {checkAuthed, checkSession } = require('./middleware/middlware')
 
 // EXPRESS SESSIONS =====================================
 app.use(session({
@@ -55,6 +49,7 @@ app.post('/api/login', passport.authenticate('local', {
 }));
 app.get('/success', checkAuthed, successUser)
 app.get('/api/current-user', checkAuthed)
+app.get('/api/sessions', checkSession)
 app.post('/api/register', registerUser)
 
 
