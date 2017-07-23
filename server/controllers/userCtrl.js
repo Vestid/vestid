@@ -31,6 +31,5 @@ exports.successUser = (req, res, next) => {
 	delete user[0].password
 	delete user[0].email
 	req.session.user = user
-	console.log(req.session.user)
 	return res.status(200).send(user)
 }
