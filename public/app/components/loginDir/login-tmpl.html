@@ -9,7 +9,7 @@
             <input type="email" placeholder="john_doe@vestid.com" ng-model="user.email" required="required" ng-class="{red: invalid}">
             <input type="password" placeholder="*********" ng-model="user.password" required="required" ng-class="{red: invalid}">
             <p ui-sref="password-reset">forgot password?</p>
-            <p id="invalid-login" ng-show="invalid">invalid credentials</p>
+            <p id="invalid-login" ng-style="{opacity: (invalid) ? '1' : '0'}">invalid credentials</p>
         </section>
         <section class="btn-container">
             <button type="submit">login</button>
