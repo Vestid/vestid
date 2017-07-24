@@ -10,11 +10,6 @@ angular.module('vestid').controller('seekingLoanCtrl', ($scope, authService, pre
 	prevState.parseState(url)
 
 
-	//const getState = (url) => {
-	//	currentState.currentState(url).then(newUrl => console.log(newUrl))
-	//}
-	//getState()
-
 	$scope.loans = [
 		{ price: 500 },
 		{ price: 750 },
