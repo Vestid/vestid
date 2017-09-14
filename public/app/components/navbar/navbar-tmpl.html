@@ -4,5 +4,5 @@
     <nav-logo ui-sref="landing"><h1><span>V</span>estid</h1></nav-logo>
     <nav-title class="nav-item">why?</nav-title>
     <nav-login ui-sref="login" class="nav-item" ng-if="keepLogin">login</nav-login>
-	<nav-title class="nav-item" ng-if="removeUser">welcome, {{user | lowercase}}</nav-title>
+	<nav-title class="nav-item" ng-cloak ng-if="removeUser">welcome, {{user | lowercase}}</nav-title>
 </nav>

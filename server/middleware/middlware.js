@@ -5,7 +5,7 @@ exports.checkAuthed = (req, res, next) => {
 	return next()
 };
 
-exports.checkSession = (req, res, next) => {
-	console.log("req session user",req.session.user)
-	console.log('req user: ', req.user)
-}
+//exports.checkSession = (req, res, next) => {
+//	console.log("req session user",req.session.user)
+//	console.log('req user: ', req.user)
+//}

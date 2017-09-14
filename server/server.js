@@ -49,7 +49,7 @@ app.post('/api/login', passport.authenticate('local', {
 }));
 app.get('/success', checkAuthed, successUser)
 app.get('/api/current-user', checkAuthed)
-app.get('/api/sessions', checkSession)
+//app.get('/api/sessions', checkSession)
 app.post('/api/register', registerUser)
 
 
