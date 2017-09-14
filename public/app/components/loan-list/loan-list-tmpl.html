@@ -1,0 +1,18 @@
+<section class="loan-list-container">
+	<header class="loan-titles">
+		<i class="fa fa-star-o" aria-hidden="true"></i>
+		<title>business type</title>
+		<title>business name</title>
+		<title>loan amount</title>
+		<title>details</title>
+	</header>
+	<div class="loan-content" ng-repeat="loan in loans">
+		<i ng-class="loan.favorited ? 'fa fa-star' : 'fa fa-star-o'"
+		   ng-click="toggleFav(loan.id)"
+		   aria-hidden="true"></i>
+		<p>{{loan.type}}</p>
+		<p>{{loan.name}}</p>
+		<p id="money">{{loan.loanAmount | currency}}</p>
+		<p>more details</p>
+	</div>
+</section>

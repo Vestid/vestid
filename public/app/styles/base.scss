@@ -5,6 +5,7 @@ $primary-blue: #0099C5;
 $off-white: #efefef;
 $box-shadow: 5px 6px 7px #b9b9b9;
 $nav-shadow: 0px 1px 10px #b9b9b9;
+$blue-shadow: 5px 5px 14px #545454;
 $right-shadow: -6px 1px 16px #b9b9b9;
 $v-shadow: 6px 3px 7px rgba(0, 0, 0, 0.18);
 $shadow-gray:rgba(0, 0, 0, 0.18);
@@ -12,7 +13,7 @@ $login-gray: rgba(218, 217, 217, 0.7);
 $active-green: #62FF87;
 $hover-green: #61b960;
 $invalid-red: #d20915;
-
+$yellow: #d8d846;
 
 /* font variables */
 $lato-font: 'Lato', sans-serif;
@@ -33,3 +34,6 @@ $primary-font: "europa",sans-serif;
   padding-top: 265px;
 }
 
+title {
+  display: inherit;
+}
