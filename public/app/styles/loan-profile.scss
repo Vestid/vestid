@@ -5,11 +5,71 @@
 	display: flex;
 	.profile-nav-wrap {
 		width: 20vw;
-		height:100vh;
+		height: 100vh;
 		background: $primary-blue;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		.user-profile-img{
+			display: flex;
+			align-items:center;
+			justify-content:space-around;
+			margin-top: 75px;
+			.profile-img{
+				height: 90px;
+				width: 90px;
+				border-radius: 50%;
+				background: $off-white;
+				border:3px solid lightgrey;
+				display: flex;
+				justify-content:center;
+				align-items:center;
+				i {
+					font-size: 4em;
+					color: lightgrey;
+				}
+			}
+			p{
+				font-size: 1.5em;
+				color: white;
+				margin-left: -20px;
+			}
+		}
+		.return-wrap{
+			display: flex;
+			margin: 0 50px 50px;
+			color: white;
+			justify-content: space-between;
+			width: 25%;
+			font-size: 18px;
+			&:hover{
+				color: lightgrey;
+				cursor: pointer;
+			}
+		}
+	}
+	.details-wrap{
+		background-color:white;
+		height: 50vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		font-size: 1.3em;
+		margin-left: 7vw;
+		margin-top: 23vh;
+		position: absolute;
+		width: 15vw;
+		padding:0 7px;
+		box-shadow: 6px 1px 7px #b9b9b9;
+		p {
+			border-bottom:3px solid lightgrey;
+		}
+		i {
+			color: lightgrey;
+			margin-right:5px;
+		}
 	}
 	.right-container {
 		width: 80vw;
-		background-color: $yellow;
 	}
 }
