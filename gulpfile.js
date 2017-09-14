@@ -58,7 +58,8 @@ gulp.task('watch', () => {
     gulp.watch(paths.jsSrc, ['js-bundle'])
     gulp.watch(paths.scssSrc, ['scss-bundle'])
 })
-gulp.task('default', ['watch', 'js-bundle','scss-bundle', 'server'])
+gulp.task('default', ['watch','scss-bundle', 'server'])
+gulp.task('js', ['js-bundle'])
 
 // Task used for post-instillation on Heroku Server  ==========
 gulp.task('build', ['js-bundle','scss-bundle'])          //===
