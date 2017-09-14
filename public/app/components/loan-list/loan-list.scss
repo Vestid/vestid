@@ -3,4 +3,14 @@
 .loan-list-wrap {
 	background: $primary-blue;
 	height: 90vh;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.loan-list-container {
+	background: $hover-gray;
+	box-shadow: $blue-shadow;
+	height: 65vh;
+	width: 50vw;
 }
