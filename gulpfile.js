@@ -41,7 +41,7 @@ gulp.task('js-bundle', () =>  {
 gulp.task('scss-bundle', () => {
     gulp.src(paths.scssSrc)
 	    .pipe(sourcemaps.init())
-	    .pipe(prefixer({
+	    .pipe(autoprefixer({
 		    browsers: ['last 2 versions'],
 		    cascade: false
 	    }))
