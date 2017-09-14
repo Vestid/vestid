@@ -62,12 +62,20 @@
 		padding:0 7px;
 		box-shadow: 6px 1px 7px #b9b9b9;
 		p {
+			color: gray;
+			font-size: 17px;
+			padding-bottom: 10px;
 			border-bottom:3px solid lightgrey;
 		}
 		i {
-			color: lightgrey;
-			margin-right:5px;
+			margin-right:12px;
+			font-size: 20px;
 		}
+		#user{color: $v-gray;}
+		#dollar{color: $dollar-green;}
+		#email{color: $email-yellow;}
+		#location{color: $location-red;}
+		#briefcase{color: $briefcase-blue;}
 	}
 	.right-container {
 		width: 80vw;
