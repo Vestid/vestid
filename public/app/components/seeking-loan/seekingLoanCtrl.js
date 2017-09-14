@@ -2,12 +2,9 @@ angular.module('vestid').controller('seekingLoanCtrl',
 	['$scope', 'authService', 'prevState', '$state', ($scope, authService, prevState, $state) => {
 
 	authService.currentUser().then(user => {
-		if(user.data === 'Unauthorized') {
-			$scope.unauthorized = true
-		} else {
-			$scope.authorize = true;
-			$scope.user = user.data.firstname;
-		}
+		(user.data === 'Unauthorized') ? $scope.authorized = false : $scope.authorized = true;
+		(user.data === 'Unauthorized') ? $scope.unauthorized = true : $scope.unauthorized = false;
+		($scope.authorized) ? $scope.user = user.data.firstname : $scope.user = null;
 	})
 
 	const url = $state.href($state.current.name)
