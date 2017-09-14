@@ -46,6 +46,6 @@ angular.module('vestid', ['ui.router'])
 			})
 			.state('loan-profile', {
 				templateUrl: './app/views/loan-profile.html',
-				url: '/loan-profile/details/:id'
+				url: '/loan-profile/details'
 			})
 	}])
