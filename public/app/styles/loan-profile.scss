@@ -75,7 +75,31 @@
 		justify-content:center;
 		.center-content{
 			width: 65vw;
-			border:2px solid red;
+			display: flex;
+			flex-direction:column;
+			align-items:center;
+			justify-content: space-around;
+			img {
+				width: 70%;
+				filter: blur(2px);
+			}
+			p {
+				border: 3px solid $primary-blue;
+				width: 65%;
+				padding: 30px;
+				color: $v-gray;
+				font-size: 1.2em;
+			}
+			.stat-wrap {
+				display: flex;
+				justify-content:space-between;
+				width: 65%;
+				.stats{
+					background: $v-gray;
+					height: 125px;
+					width: 125px;
+				}
+			}
 		}
 	}
 }
