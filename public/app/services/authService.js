@@ -33,4 +33,5 @@ angular.module('vestid').service('authService',
 			.catch(err => err)
 	}
 
+
 }]);

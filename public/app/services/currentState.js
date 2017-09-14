@@ -1,4 +1,4 @@
-angular.module('vestid').service('prevState', ['$location',function($location){
+angular.module('vestid').service('prevState', [function(){
 	this.newUrl = []
 	let service = this
 

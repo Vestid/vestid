@@ -1,5 +1,5 @@
 angular.module('vestid').controller('loginCtrl',
-	[ '$scope', 'authService', '$state', ($scope, authService, $state) => {
+	['$scope', '$state', 'authService', ($scope, $state, authService) => {
 
 	$scope.invalid = false
 
@@ -12,6 +12,7 @@ angular.module('vestid').controller('loginCtrl',
 				$scope.user.email = ''
 				$scope.user.password = ''
 			} else {
+
 				$state.go('landing')
 			}
 		})
