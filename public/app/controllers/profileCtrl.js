@@ -1,8 +1,8 @@
 angular.module('vestid').controller('profileCtrl', ['$scope',($scope) => {
 
 
-	$scope.labels = ["Download Sales"];
-	$scope.data = [300];
+	$scope.labels = ['Satisfaction' ,''];
+	$scope.data = [80, 20];
 
 
 }]);
