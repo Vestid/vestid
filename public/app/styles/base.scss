@@ -13,7 +13,7 @@ $login-gray: rgba(218, 217, 217, 0.7);
 $active-green: #62FF87;
 $hover-green: #61b960;
 $invalid-red: #d20915;
-
+$yellow: #d8d846;
 
 /* font variables */
 $lato-font: 'Lato', sans-serif;
@@ -34,3 +34,6 @@ $primary-font: "europa",sans-serif;
   padding-top: 265px;
 }
 
+title {
+  display: inherit;
+}

@@ -13,4 +13,18 @@
 	box-shadow: $blue-shadow;
 	height: 65vh;
 	width: 50vw;
+	font-family:$muli-font;
+	.loan-titles {
+		background: $off-white;
+		display: flex;
+		justify-content:space-around;
+		padding: 15px 10px;
+		color: $primary-blue;
+		font-weight:bold;
+		font-size: 1.1em;
+		i {
+			color: $yellow;
+			font-size: 1.1em;
+		}
+	}
 }
