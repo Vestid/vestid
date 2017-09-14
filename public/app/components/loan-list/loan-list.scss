@@ -15,6 +15,9 @@
 	width: 50vw;
 	font-family:$muli-font;
 	.loan-titles {
+		title {
+			width: 20%;
+		}
 		background: $off-white;
 		display: flex;
 		justify-content:space-around;
@@ -22,9 +25,30 @@
 		color: $primary-blue;
 		font-weight:bold;
 		font-size: 1.1em;
-		i {
-			color: $yellow;
-			font-size: 1.1em;
+	}
+	i {
+		color: $yellow;
+		font-size: 1.1em;
+	}
+	.loan-content{
+		p {
+			width: 20%;
 		}
+		p:last-child {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+		display: flex;
+		justify-content:space-around;
+		align-items:center;
+		padding: 0 10px;
+	}
+	.loan-content:nth-child(even){
+		background-color: $v-gray;
+		color: white;
+	}
+	.loan-content:nth-child(odd){
+		background-color: $off-white;
+		color: $v-gray;
 	}
 }
