@@ -1,4 +1,5 @@
-angular.module('vestid').controller('landingCtrl', ($scope, $stateParams) => {
+angular.module('vestid').controller('landingCtrl',
+	['$scope', '$stateParams',($scope, $stateParams) => {
 
 	$scope.user = $stateParams.id
 	if (!$scope.user) {
@@ -9,4 +10,4 @@ angular.module('vestid').controller('landingCtrl', ($scope, $stateParams) => {
 	}
 	
 
-})
+}])

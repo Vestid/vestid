@@ -1,4 +1,5 @@
-angular.module('vestid').service('authService', function($http){
+angular.module('vestid').service('authService',
+	['$http', function($http){
 
 	this.loginUser = (user) => {
 		return $http({
@@ -32,4 +33,4 @@ angular.module('vestid').service('authService', function($http){
 			.catch(err => err)
 	}
 
-});
+}]);

@@ -1,4 +1,5 @@
-angular.module('vestid').controller('registerCtrl', ($scope, authService, $state) => {
+angular.module('vestid').controller('registerCtrl',
+	['$scope', 'authService', '$state',($scope, authService, $state) => {
 
 	$scope.matchDefault = false;
 		
@@ -17,5 +18,4 @@ angular.module('vestid').controller('registerCtrl', ($scope, authService, $state
 			})
 		}
 	}
-	
-});
+}]);

@@ -1,3 +1,3 @@
-angular.module('vestid').controller('pwresetCtrl', () => {
+angular.module('vestid').controller('pwresetCtrl', [() => {
 
-});
+}]);
