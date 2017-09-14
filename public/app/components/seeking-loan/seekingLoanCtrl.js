@@ -10,8 +10,6 @@ angular.module('vestid').controller('seekingLoanCtrl',
 		($scope.authorized) ? $scope.user = user.data.firstname : $scope.user = null;
 	})
 
-
-
 	$scope.loans = [
 		{ price: 500 },
 		{ price: 750 },
