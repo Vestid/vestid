@@ -32,6 +32,16 @@ angular.module('vestid', ['ui.router'])
 			})
 			.state('all-loans', {
 				templateUrl: './app/views/all-loans.html',
-				url: '/all-loans'
+				url: '/all-loans',
+				resolve: {
+					loginCheck: ['authService','$state', (authService, $state) => {
+						return authService.currentUser().then(user => {
+							if(user.data === 'Unauthorized') {
+								$state.go('landing')
+							}
+							return user.data
+						})
+					}]
+				}
 			})
 	}])
