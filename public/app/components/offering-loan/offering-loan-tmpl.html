@@ -14,7 +14,7 @@
 		   Ad architecto, dolor eius, error et fuga impedit minima mollitia neque numquam odio quam quibusdam recusandae reiciendis reprehenderit sit veniam.
 		   </p>
 	</ofl-left-details>
-	<form ng-submit="oflform(ofl)" ng-if="authorized">
+	<form ng-submit="oflform(ofl)" ng-if="authorized" ng-cloak>
 		<ofl-title><span>O</span>ffering  <span>L</span>oan  <span>F</span>orm</ofl-title>
 		<input type="text" ng-model="ofl.firstname" placeholder="John">
 		<input type="text" ng-model="ofl.lastname" placeholder="Doe">
@@ -22,5 +22,5 @@
 		<input type="text" ng-model="ofl.location" placeholder="UT">
 		<button type="submit">Submit <i class="material-icons">keyboard_arrow_right</i></button>
 	</form>
-	<prevent-card ng-if="unauthorized" type="offering"></prevent-card>
+	<prevent-card ng-if="unauthorized" type="offering" ng-cloak></prevent-card>
 </section>
