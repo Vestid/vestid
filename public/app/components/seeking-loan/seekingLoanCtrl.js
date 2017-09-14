@@ -1,4 +1,5 @@
-angular.module('vestid').controller('seekingLoanCtrl', ($scope, authService, prevState, $state) => {
+angular.module('vestid').controller('seekingLoanCtrl',
+	['$scope', 'authService', 'prevState', '$state', ($scope, authService, prevState, $state) => {
 
 	authService.currentUser().then((res) => {
 		(res.data === 'Unauthorized') ? $scope.authorized = false : $scope.authorized = true;
@@ -26,4 +27,4 @@ angular.module('vestid').controller('seekingLoanCtrl', ($scope, authService, pre
 		{ type: 'Retail' }
 	];
 
-});
+}]);

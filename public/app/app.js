@@ -1,5 +1,5 @@
 angular.module('vestid', ['ui.router'])
-	.config(($stateProvider, $urlRouterProvider) => {
+	.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
 
 		$urlRouterProvider.otherwise('/')
 
@@ -30,4 +30,4 @@ angular.module('vestid', ['ui.router'])
 				templateUrl: './app/views/offering-loan.html',
 				url: '/offering-loan'
 			})
-	})
+	}])

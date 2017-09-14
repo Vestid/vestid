@@ -1,4 +1,4 @@
-angular.module('vestid').controller('loginCtrl', ($scope, authService, $state, prevState) => {
+angular.module('vestid').controller('loginCtrl',[ '$scope', 'authService', '$state', 'prevState', ($scope, authService, $state, prevState) => {
 	$scope.invalid = false;
 
 	$scope.login = (user) => {
@@ -16,4 +16,4 @@ angular.module('vestid').controller('loginCtrl', ($scope, authService, $state, p
 		})
 	}
 
-})
+}])
