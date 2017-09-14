@@ -106,7 +106,7 @@
 				margin-top: -30px;
 				color: white;
 				.stats{
-					background: #adadad;
+					background: #cccccc;
 					width: 125px;
 					box-shadow: $box-shadow;
 					canvas{
@@ -134,7 +134,7 @@
 					flex-direction:column;
 					justify-content:center;
 					align-items:center;
-					padding: 2px;
+					padding: 5px 2px;
 					h3 {
 						display: flex;
 						flex-direction:column;
@@ -151,7 +151,7 @@
 					justify-content:center;
 					align-items:center;
 					i {
-						color: #69c562;
+						color: #4DB545;
 						font-size: 3em;
 						margin-bottom: 20px;
 					}
