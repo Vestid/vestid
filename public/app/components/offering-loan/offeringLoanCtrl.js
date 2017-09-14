@@ -1,10 +1,10 @@
 angular.module("vestid").controller("offeringLoanCtrl",
 	['$scope', 'authService', 'prevState', '$state', ($scope, authService, prevState, $state) => {
 
-	authService.currentUser().then(({data}) => {
-		(data === 'Unauthorized') ? $scope.authorized = false : $scope.authorized = true;
-		(data === 'Unauthorized') ? $scope.unauthorized = true : $scope.unauthorized = false;
-		$scope.userId = res.data[0].id
+	authService.currentUser().then(user => {
+		(user.data === 'Unauthorized') ? $scope.authorized = false : $scope.authorized = true;
+		(user.data === 'Unauthorized') ? $scope.unauthorized = true : $scope.unauthorized = false;
+		($scope.authorized) ? $scope.user = user.data.firstname : $scope.user = null;
 	})
 
 	const url = $state.href($state.current.name)

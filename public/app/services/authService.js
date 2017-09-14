@@ -7,7 +7,7 @@ angular.module('vestid').service('authService',
 			method: 'POST',
 			data: user
 		}).then(res => {
-			return res.data
+			return res
 		}).catch(error => {
 			return error
 		})
@@ -32,5 +32,6 @@ angular.module('vestid').service('authService',
 		}).then(res => res)
 			.catch(err => err)
 	}
+
 
 }]);

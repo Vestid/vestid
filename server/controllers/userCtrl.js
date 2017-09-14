@@ -30,6 +30,5 @@ exports.successUser = (req, res, next) => {
 	if(!user) return res.status(401).send("User Not Found")
 	delete user[0].password
 	delete user[0].email
-	req.session.user = user
-	return res.status(200).send(user)
+	return res.status(200).send(user[0])
 }
