@@ -1,0 +1,15 @@
+@import "./base.scss";
+
+.loan-profile-container {
+	font-family:$muli-font;
+	display: flex;
+	.profile-nav-wrap {
+		width: 20vw;
+		height:100vh;
+		background: $primary-blue;
+	}
+	.right-container {
+		width: 80vw;
+		background-color: $yellow;
+	}
+}
