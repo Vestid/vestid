@@ -58,7 +58,7 @@
 		margin-left: 7vw;
 		margin-top: 23vh;
 		position: absolute;
-		width: 15vw;
+		min-width: 15vw;
 		padding:0 7px;
 		box-shadow: 6px 1px 7px #b9b9b9;
 		p {
@@ -71,5 +71,11 @@
 	}
 	.right-container {
 		width: 80vw;
+		display: flex;
+		justify-content:center;
+		.center-content{
+			width: 65vw;
+			border:2px solid red;
+		}
 	}
 }
