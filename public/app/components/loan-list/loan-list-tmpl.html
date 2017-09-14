@@ -7,10 +7,12 @@
 		<title>details</title>
 	</header>
 	<div class="loan-content" ng-repeat="loan in loans">
-		<i class="fa fa-star-o" aria-hidden="true"></i>
+		<i ng-class="loan.favorited ? 'fa fa-star' : 'fa fa-star-o'"
+		   ng-click="toggleFav(loan.id)"
+		   aria-hidden="true"></i>
 		<p>{{loan.type}}</p>
 		<p>{{loan.name}}</p>
-		<p>{{loan.loanAmount | currency}}</p>
+		<p id="money">{{loan.loanAmount | currency}}</p>
 		<p>more details</p>
 	</div>
 </section>
