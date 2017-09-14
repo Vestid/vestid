@@ -30,4 +30,8 @@ angular.module('vestid', ['ui.router'])
 				templateUrl: './app/views/offering-loan.html',
 				url: '/offering-loan'
 			})
+			.state('all-loans', {
+				templateUrl: './app/views/all-loans.html',
+				url: '/all-loans'
+			})
 	}])
