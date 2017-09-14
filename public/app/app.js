@@ -1,4 +1,4 @@
-angular.module('vestid', ['ui.router'])
+angular.module('vestid', ['ui.router', 'chart.js'])
 	.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
 
 		$urlRouterProvider.otherwise('/')
@@ -46,6 +46,7 @@ angular.module('vestid', ['ui.router'])
 			})
 			.state('loan-profile', {
 				templateUrl: './app/views/loan-profile.html',
-				url: '/loan-profile/details/:id'
+				url: '/loan-profile/details',
+				controller: 'profileCtrl'
 			})
 	}])
