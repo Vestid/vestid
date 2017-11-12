@@ -37,7 +37,6 @@ app.use(session({
 }));
 app.use(passport.initialize())
 app.use(passport.session())
-
 // SERVER CONTROLLERS ==================================
 const { registerUser, successUser } = require('./controllers/userCtrl');
 const { defaultMail } = require('./nodemailer/mailers/default');
@@ -54,7 +53,7 @@ app.post('/api/register', registerUser)
 
 
 
-app.get('/api/defaultmail', defaultMail)
+app.get('/api/reset', defaultMail)
 
 // LISTENING ON PORT =====================================
 app.listen(app.get('port'), () => {
