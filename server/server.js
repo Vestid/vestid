@@ -52,6 +52,8 @@ app.post('/api/register', registerUser)
 
 // MAILER ENDPOINTS =====================================
 app.get('/api/reset', defaultMail)
+//TODO: 1 - one endpoint for requesting a PW reset this would need USER info,
+//todo: 2 - another endpoint for the email link to comeback to and check the parameter
 
 // LISTENING ON PORT =====================================
 app.listen(app.get('port'), () => {
