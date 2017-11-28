@@ -27,7 +27,7 @@ massive(process.env.ESQL_DB)
 	.catch((err) => console.log("massive DB Error: ", err))
 
 // MIDDLEWARE POLICY ===================================
-const {checkAuthed, checkSession } = require('./middleware/middlware')
+const {checkAuthed, checkEmail } = require('./middleware/middlware')
 
 // EXPRESS SESSIONS =====================================
 app.use(session({
@@ -40,6 +40,7 @@ app.use(passport.session())
 // SERVER CONTROLLERS ==================================
 const { registerUser, successUser } = require('./controllers/userCtrl');
 const { defaultMail } = require('./nodemailer/mailers/default');
+const { sendReset } = require('./nodemailer/mailers/resetPassword')
 
 
 // LOCAL AUTH ENDPOINTS ================================
@@ -51,7 +52,7 @@ app.get('/api/current-user', checkAuthed)
 app.post('/api/register', registerUser)
 
 // MAILER ENDPOINTS =====================================
-app.get('/api/reset', defaultMail)
+app.post('/api/reset', checkEmail, sendReset)
 //TODO: 1 - one endpoint for requesting a PW reset this would need USER info,
 //todo: 2 - another endpoint for the email link to comeback to and check the parameter
 

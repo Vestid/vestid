@@ -1,12 +1,12 @@
 angular.module('vestid').service('emailService',
     ['$http', function ($http) {
 
-    this.requestPWReset = user => {
+    this.requestPWReset = (email) => {
         return $http({
-            url: '/api/request-password-reset',
+            url: '/api/reset',
             method: 'POST',
-            data: user
-        }).then(data => console.log(data))
+            data: { email}
+        }).then(data => data)
             .catch(err => console.log('err', err));
     }
     }])
