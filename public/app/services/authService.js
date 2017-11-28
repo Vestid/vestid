@@ -6,11 +6,8 @@ angular.module('vestid').service('authService',
 			url: '/api/login',
 			method: 'POST',
 			data: user
-		}).then(res => {
-			return res
-		}).catch(error => {
-			return error
-		})
+		}).then(res => res)
+			.catch(err => err)
 	}
 
 	this.registerUser = (user) => {
@@ -18,11 +15,8 @@ angular.module('vestid').service('authService',
 			url: '/api/register',
 			method: 'POST',
 			data: user
-		}).then(data => {
-			return data
-		}).catch(err => {
-			return err
-		})
+		}).then(data => data)
+			.catch(err => err)
 	}
 
 	this.currentUser = () => {
@@ -32,6 +26,5 @@ angular.module('vestid').service('authService',
 		}).then(res => res)
 			.catch(err => err)
 	}
-
 
 }]);
