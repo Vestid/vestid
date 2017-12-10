@@ -40,7 +40,6 @@ angular.module('vestid').service('authService',
             data: { email }
         }).then(res => res)
             .catch(err => err)
-
     }
 
 }]);

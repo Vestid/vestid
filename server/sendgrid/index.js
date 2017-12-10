@@ -4,11 +4,9 @@ const sendgrid = require('@sendgrid/mail');
 sendgrid.setApiKey(`${SENDGRID_API}`);
 
 exports.sendReset = (req, res, next) => {
-    //TODO: CREATE HELPER FUNCTION FOR MAKING THIS CLEANER
+    //TODO: CREATE HELPER FUNCTION FOR MAKING THIS CLEANER && Create frontend url for reset input
+    //TODO: generate token for URL
     const { id, firstname, lastname, email } = req.body.confirmed[0]
-    console.log('email: ', email)
-    console.log('first: ', firstname, 'lastname: ', lastname);
-    console.log('id: ', id);
     const url = 'dallinparker.me'
     const msg = {
         to: 'dallin.r.parker@gmail.com',
