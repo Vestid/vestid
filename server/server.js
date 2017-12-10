@@ -26,7 +26,7 @@ massive(process.env.ESQL_DB)
 	.catch((err) => console.log("massive DB Error: ", err))
 
 // MIDDLEWARE POLICY ===================================
-const { checkAuthed } = require('./middleware/middlware')
+const { checkAuthed, checkEmail } = require('./middleware/middlware')
 
 // EXPRESS SESSIONS =====================================
 app.use(session({
@@ -39,7 +39,7 @@ app.use(passport.session())
 
 // SERVER CONTROLLERS ==================================
 const { registerUser, successUser } = require('./controllers/userCtrl');
-const { resetPassword } = require('./sendgrid');
+const { sendReset } = require('./sendgrid');
 
 
 // LOCAL AUTH ENDPOINTS ================================
@@ -51,7 +51,7 @@ app.get('/api/current-user', checkAuthed)
 app.post('/api/register', registerUser)
 
 // app.get('/api/defaultmail', resetPassword)
-app.post('/api/reset', resetPassword)
+app.post('/api/reset', checkEmail, sendReset)
 
 // LISTENING ON PORT =====================================
 app.listen(app.get('port'), () => {

@@ -3,7 +3,7 @@ const { SENDGRID_API } = process.env;
 const sendgrid = require('@sendgrid/mail');
 sendgrid.setApiKey(`${SENDGRID_API}`);
 
-exports.resetPassword = (req, res, next) => {
+exports.sendReset = (req, res, next) => {
     const { email } = req.body
     const url = 'dallinparker.me'
     const msg = {
