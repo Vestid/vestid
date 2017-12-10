@@ -50,7 +50,8 @@ app.get('/success', checkAuthed, successUser)
 app.get('/api/current-user', checkAuthed)
 app.post('/api/register', registerUser)
 
-app.get('/api/defaultmail', resetPassword)
+// app.get('/api/defaultmail', resetPassword)
+app.post('/api/reset', resetPassword)
 
 // LISTENING ON PORT =====================================
 app.listen(app.get('port'), () => {
