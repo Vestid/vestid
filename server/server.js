@@ -55,6 +55,7 @@ app.post('/api/reset', checkEmail, sendReset)
 app.get('/api/reset-approved/:token', (req, res, next) => {
     const { token } = req.params
     console.log('res: ', token)
+    //todo: create function to compare token with what's in the DB
 })
 
 // LISTENING ON PORT =====================================
