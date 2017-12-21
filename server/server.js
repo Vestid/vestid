@@ -52,6 +52,10 @@ app.post('/api/register', registerUser)
 
 // app.get('/api/defaultmail', resetPassword)
 app.post('/api/reset', checkEmail, sendReset)
+app.get('/api/reset-approved/:token', (req, res, next) => {
+    const { token } = req.params
+    console.log('res: ', token)
+})
 
 // LISTENING ON PORT =====================================
 app.listen(app.get('port'), () => {
