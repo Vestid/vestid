@@ -33,5 +33,13 @@ angular.module('vestid').service('authService',
 			.catch(err => err)
 	}
 
+	this.resetPassword = (email) => {
+	    return $http({
+            url: '/api/reset',
+            method: 'POST',
+            data: { email }
+        }).then(res => res)
+            .catch(err => err)
+    }
 
 }]);

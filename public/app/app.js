@@ -21,6 +21,10 @@ angular.module('vestid', ['ui.router', 'chart.js'])
 				templateUrl: './app/views/password-reset.html',
 				url: '/password-reset'
 			})
+			.state('password-reset-approval', {
+				templateUrl: './app/views/reset-approval.html',
+				url:'/reset/approved/:token'
+			})
 			.state('seeking-loan', {
 				templateUrl: './app/views/seeking-loan.html',
 				url: '/seeking-loan',

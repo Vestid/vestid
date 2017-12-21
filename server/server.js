@@ -5,7 +5,6 @@ const express = require('express')
 const massive = require('massive')
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const nodemailer = require('nodemailer')
 const projectname = 'Vestid'
 
 
@@ -27,7 +26,7 @@ massive(process.env.ESQL_DB)
 	.catch((err) => console.log("massive DB Error: ", err))
 
 // MIDDLEWARE POLICY ===================================
-const {checkAuthed, checkSession } = require('./middleware/middlware')
+const { checkAuthed, checkEmail } = require('./middleware/middlware')
 
 // EXPRESS SESSIONS =====================================
 app.use(session({
@@ -40,7 +39,7 @@ app.use(passport.session())
 
 // SERVER CONTROLLERS ==================================
 const { registerUser, successUser } = require('./controllers/userCtrl');
-const { defaultMail } = require('./nodemailer/mailers/default');
+const { sendReset } = require('./sendgrid');
 
 
 // LOCAL AUTH ENDPOINTS ================================
@@ -49,12 +48,14 @@ app.post('/api/login', passport.authenticate('local', {
 }));
 app.get('/success', checkAuthed, successUser)
 app.get('/api/current-user', checkAuthed)
-//app.get('/api/sessions', checkSession)
 app.post('/api/register', registerUser)
 
-
-
-app.get('/api/defaultmail', defaultMail)
+// app.get('/api/defaultmail', resetPassword)
+app.post('/api/reset', checkEmail, sendReset)
+app.get('/api/reset-approved/:token', (req, res, next) => {
+    const { token } = req.params
+    console.log('res: ', token)
+})
 
 // LISTENING ON PORT =====================================
 app.listen(app.get('port'), () => {

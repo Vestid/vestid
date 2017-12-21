@@ -12,7 +12,6 @@ angular.module('vestid').controller('loginCtrl',
 				$scope.user.email = ''
 				$scope.user.password = ''
 			} else {
-
 				$state.go('landing')
 			}
 		})
