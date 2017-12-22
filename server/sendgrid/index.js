@@ -9,7 +9,7 @@ exports.sendReset = (req, res, next) => {
     const { token } = req.body.token
     const { hostname } = req
     // const url = 'vestid.co/reset/approved/'
-    const url = `http://${hostname}:3000/api/reset-approved/${token}`
+    const url = `http://${hostname}/api/reset-approved/${token}`
     const msg = {
         to: email,
         from: SENDGRID_EMAIL,
