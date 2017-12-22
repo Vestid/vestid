@@ -6,16 +6,17 @@ const { generateToken, mashName } = require('../middleware/middlware')
 
 exports.sendReset = (req, res, next) => {
     const { firstname, email } = req.body.confirmed[0]
-    const { mashed } = req.body.mashed
+    const { token } = req.body.token
     const { hostname } = req
     // const url = 'vestid.co/reset/approved/'
-    const url = `${hostname}:3000/api/reset-approved/${mashed}`
+    const url = `http://${hostname}:3000/api/reset-approved/${token}`
     const msg = {
         to: email,
         from: SENDGRID_EMAIL,
         subject: 'Vestid Support: Password Reset Request',
-        text:`Hi ${firstname}, you are getting this email because you have requested to reset your password by clicking: ${url}`,
-        html: `<strong>Hi ${firstname}, <br> you're getting this email because you've requested to reset your password by clicking: ${url}</stong>`,
+        text:`Hi ${firstname},
+         you are getting this email because you have requested to reset your password by clicking: ${url}
+         in 24 hours this link will no longer allow you to reset your password.`
     };
     sendgrid.send(msg);
 };
