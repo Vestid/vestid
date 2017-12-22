@@ -26,7 +26,7 @@ massive(process.env.ESQL_DB)
 	.catch((err) => console.log("massive DB Error: ", err))
 
 // MIDDLEWARE POLICY ===================================
-const { checkAuthed, checkEmail } = require('./middleware/middlware')
+const { checkAuthed, checkEmail, updateUserToken } = require('./middleware/middlware')
 
 // EXPRESS SESSIONS =====================================
 app.use(session({
@@ -50,7 +50,7 @@ app.get('/success', checkAuthed, successUser)
 app.get('/api/current-user', checkAuthed)
 app.post('/api/register', registerUser)
 // PASSWORD RESET ENDPOINTS ============================
-app.post('/api/reset', checkEmail, sendReset)
+app.post('/api/reset', checkEmail, updateUserToken, sendReset)
 app.get('/api/reset-approved/:token', (req, res, next) => {
     const { token } = req.params
     console.log('res: ', token)
