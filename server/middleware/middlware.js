@@ -1,5 +1,5 @@
 const app = require('../server');
-const isPast = require('date-fns/is_past')
+const { parse, isPast } = require('date-fns')
 const random = require('rand-token')
 
 exports.checkAuthed = (req, res, next) => {
@@ -15,12 +15,14 @@ exports.checkEmail = (req, res, next) => {
     })
 }
 
+exports.createExpiration = (now = new Date()) => (parse(now.setDate(now.getDate() + 1)))
+//todo needs to check have conditionals for how many days are in the given month.
 exports.hasTokenExpired = date => (isPast(date))
 
 exports.updateUserToken = (req, res, next) => {
     const { id } = req.body.confirmed[0]
     const token = random.generate(25)
-    const expiration = new Date()
+    const expiration = exports.createExpiration()
 
     app.get('db').update_user_token([token, expiration, id]).then(updated => {
         (updated[0].tokenkey) ? delete updated[0].password : res.status(404).send('Reset password failed')
@@ -32,4 +34,8 @@ exports.updateUserToken = (req, res, next) => {
 exports.checkToken = (req, res, next) => {
     const { token } = req.params
 
+    app.get('db').find_user_token([token]).then(user => {
+        (user.length > 0) ? delete user[0].password : res.status(404).send('Reset password failed')
+        return (!exports.hasTokenExpired(parse(user[0].expiration))) ? res.status(200).send('working') : res.status(404).send('Token has expired')
+    })
 }
