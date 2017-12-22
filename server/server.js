@@ -49,13 +49,22 @@ app.post('/api/login', passport.authenticate('local', {
 app.get('/success', checkAuthed, successUser)
 app.get('/api/current-user', checkAuthed)
 app.post('/api/register', registerUser)
-
-// app.get('/api/defaultmail', resetPassword)
+// PASSWORD RESET ENDPOINTS ============================
 app.post('/api/reset', checkEmail, sendReset)
 app.get('/api/reset-approved/:token', (req, res, next) => {
     const { token } = req.params
     console.log('res: ', token)
     //todo: create function to compare token with what's in the DB
+})
+// LOAN ENDPOINTS =========================================
+app.post('/api/add-loan', (req, res, next) => {
+
+})
+app.post('/api/add-seeking-loan', (req, res, next) => {
+
+})
+app.get('/api/get-all-loans', (req, res, next) => {
+    //todo: this will be the all-loans frontend page, check login statuss
 })
 
 // LISTENING ON PORT =====================================
