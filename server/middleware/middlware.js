@@ -39,7 +39,7 @@ exports.updateUserToken = (req, res, next) => {
 
     app.get('db').update_user_token([tokenKey, expiration, id]).then(updated => {
         (updated[0].tokenkey) ? delete updated[0].password : res.status(404).send('Reset password failed')
-        req.body.confirmed = Object.assign({}, req.body.confirmed, { mashed })
+        req.body.mashed = { mashed }
         next()
     })
 

@@ -5,14 +5,9 @@ sendgrid.setApiKey(`${SENDGRID_API}`);
 const { generateToken, mashName } = require('../middleware/middlware')
 
 exports.sendReset = (req, res, next) => {
-    const { id, firstname, lastname, email } = req.body.confirmed[0]
+    const { firstname, email } = req.body.confirmed[0]
+    const { mashed } = req.body.mashed
     const { hostname } = req
-    const mashed = mashName(firstname, lastname)
-    const token = generateToken(mashed)
-    console.log('token: ', token)
-    //todo: put token and expiration into DB
-    //todo: generate expiration time stamp
-    //todo: make the url in email clickable
     // const url = 'vestid.co/reset/approved/'
     const url = `${hostname}:3000/api/reset-approved/${mashed}`
     const msg = {
