@@ -29,6 +29,10 @@ angular.module('vestid', ['ui.router', 'chart.js'])
 				templateUrl: './app/views/why.html',
 				url: '/why',
 			})
+            .state('about', {
+                templateUrl: './app/views/about.html',
+                url: '/about'
+            })
 			.state('seeking-loan', {
 				templateUrl: './app/views/seeking-loan.html',
 				url: '/seeking-loan',
