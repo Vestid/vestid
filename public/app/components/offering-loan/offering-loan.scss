@@ -10,13 +10,17 @@
 		font-size: 1.5em;
 		border: 3px solid $v-gray;
 		display: flex;
+		flex-direction: column;
 		max-width: 35vw;
-		max-height: 70vh;
-		margin-top: 45px;
+		max-height: 32vh;
+		margin-top: 100px;
 		background: white;
+		h2 {
+			color: $v-gray;
+			text-align: center;
+		}
 		p {
-			color: #95989A;
-			margin: 0;
+			color: #0099C5;
 			text-align: justify;
 		}
 	}
