@@ -1,5 +1,5 @@
 angular.module("vestid").controller("offeringLoanCtrl",
-	['$scope', 'authService', 'prevState', '$state', ($scope, authService, prevState, $state) => {
+	['$scope', 'authService', 'prevState', '$state', 'submitLoanService', ($scope, authService, prevState, $state, submitLoanService) => {
 
 	authService.currentUser().then(user => {
 		(user.data === 'Unauthorized') ? $scope.authorized = false : $scope.authorized = true;
@@ -17,5 +17,11 @@ angular.module("vestid").controller("offeringLoanCtrl",
 		{ type: 'Creative' },
 		{ type: 'Retail' }
 	];
+	
+	$scope.oflform = info => {
+        submitLoanService.submitOfferingLoan(info).then(res => {
+        	console.log('offer loan res: ', res)
+		})
+	}
 
 }]);
