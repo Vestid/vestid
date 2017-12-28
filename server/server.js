@@ -54,7 +54,7 @@ app.post('/api/reset', checkEmail, updateUserToken, sendReset)
 app.get('/api/reset-approved/:token', checkToken)
 // LOAN ENDPOINTS =========================================
 app.post('/api/add-loan', (req, res, next) => {
-
+    console.log('add-loan res: ', req.body)
 })
 app.post('/api/add-seeking-loan', (req, res, next) => {
     console.log('add-seeking loan: ', req.body);
