@@ -1,0 +1,13 @@
+@import "base";
+
+.why-container {
+  font-family: $primary-font;
+  width: 75vw;
+  margin: 0 auto;
+  height: 75vh;
+  padding: 30px;
+  font-size: 2em;
+  border: 3px solid $primary-blue;
+  color: #545454;
+  overflow: scroll;
+}
