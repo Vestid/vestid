@@ -57,6 +57,7 @@ app.post('/api/add-loan', (req, res, next) => {
 
 })
 app.post('/api/add-seeking-loan', (req, res, next) => {
+    console.log('add-seeking loan: ', req.body);
 
 })
 app.get('/api/get-all-loans', (req, res, next) => {
