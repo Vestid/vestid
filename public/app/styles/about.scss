@@ -1,0 +1,13 @@
+@import "base";
+
+.about-container {
+  font-family: $primary-font;
+  width: 80vw;
+  margin: 0 auto;
+  height: 75vh;
+  display: flex;
+  padding: 30px;
+  font-size: 3em;
+  border: 3px solid $primary-blue;
+  color: #545454;
+}
