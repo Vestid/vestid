@@ -55,10 +55,13 @@ app.get('/api/reset-approved/:token', checkToken)
 // LOAN ENDPOINTS =========================================
 app.post('/api/add-loan', (req, res, next) => {
     console.log('add-loan res: ', req.body)
+    //check email first, set the boolean on user table
+    //input into offering_loan table
 })
 app.post('/api/add-seeking-loan', (req, res, next) => {
     console.log('add-seeking loan: ', req.body);
-
+//check email first, set the boolean on user table
+    //input into seeking_loan table
 })
 app.get('/api/get-all-loans', (req, res, next) => {
     //todo: this will be the all-loans frontend page, check login statuss
