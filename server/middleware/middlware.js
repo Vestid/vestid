@@ -53,6 +53,7 @@ exports.addLoanOffering = (req, res, next) => {
     const { location } = req.body
     const { type } = req.body.businesstype;
     app.get('db').add_loan_offering([id, location, type]).then(loans => {
-        console.log('loans: ', loans)       
+        return (loans.length > 0 ) ? res.status(200).send('Thank you for submitting a loan offer')
+            : res.status(500).send('Issue submitting your loan offer, please try again later.')
     })
 }
