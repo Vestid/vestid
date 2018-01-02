@@ -1,0 +1,1 @@
+INSERT INTO offering_loans (created_by, location, category) VALUEs ($1, $2, $3) returning *;

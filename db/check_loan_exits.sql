@@ -1,0 +1,1 @@
+select * from offering_loans where created_by = $1 ;
