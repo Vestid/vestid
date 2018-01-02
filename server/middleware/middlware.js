@@ -39,3 +39,20 @@ exports.checkToken = (req, res, next) => {
         return (!exports.hasTokenExpired(parse(user[0].expiration))) ? res.status(200).send('working') : res.status(404).send('Token has expired')
     })
 }
+
+exports.checkLoanExists = (req, res, next) => {
+    const { id } = req.user[0];
+    
+    app.get('db').check_loan_exits([id]).then(userLoans => {
+        return (userLoans.length > 0) ? res.status(200).send('User already has a loan submitted') : next()
+    })
+}
+
+exports.addLoanOffering = (req, res, next) => {
+    const { id } = req.user[0];
+    const { location } = req.body
+    const { type } = req.body.businesstype;
+    app.get('db').add_loan_offering([id, location, type]).then(loans => {
+        console.log('loans: ', loans)       
+    })
+}
