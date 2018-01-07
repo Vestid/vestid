@@ -5,13 +5,18 @@
 	</ofl-left-details>
 	<form ng-submit="oflform(ofl)" ng-if="authorized" ng-cloak>
 		<ofl-title><span>O</span>ffering  <span>L</span>oan  <span>F</span>orm</ofl-title>
-		<input type="text" ng-model="ofl.firstname" placeholder="First Name">
-		<input type="text" ng-model="ofl.lastname" placeholder="Last Name">
-		<select ng-model="ofl.businesstype" ng-options="businessType.type for businessType in businessTypes">
+		<input type="text" ng-model="ofl.firstname" placeholder="First Name" required="required" ng-class="{red: invalid}">
+		<input type="text" ng-model="ofl.lastname" placeholder="Last Name" required="required" ng-class="{red: invalid}">
+        <input type="number" ng-model="ofl.offeringamount" placeholder="$500" required="required" ng-class="{red: invalid}">
+		<select ng-model="ofl.businesstype" ng-options="businessType.type for businessType in businessTypes" required="required" ng-class="{red: invalid}">
 			<option value="">{{businessTypes[0].type}}</option>
 		</select>
-		<input type="text" ng-model="ofl.location" placeholder="UT">
+		<input type="text" ng-model="ofl.location" placeholder="UT" required="required" ng-class="{red: invalid}">
 		<button type="submit">Submit <i class="material-icons">keyboard_arrow_right</i></button>
 	</form>
+    <div class="error-message-container">
+
+    </div>
+
 	<prevent-card ng-if="unauthorized" type="offering" ng-cloak></prevent-card>
 </section>

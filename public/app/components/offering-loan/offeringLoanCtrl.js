@@ -15,13 +15,13 @@ angular.module("vestid").controller("offeringLoanCtrl",
 		{ type: 'Tech' },
 		{ type: 'Food' },
 		{ type: 'Creative' },
-		{ type: 'Retail' }
+		{ type: 'Retail' },
+        { type: 'Other' }
 	];
 	
-	$scope.oflform = info => {
+	$scope.oflform = (info) => {
         submitLoanService.submitOfferingLoan(info).then(res => {
-        	console.log('offer loan res: ', res)
+        	console.log('res: ', res.status)
 		})
 	}
-
 }]);

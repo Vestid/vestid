@@ -45,21 +45,23 @@ exports.checkToken = (req, res, next) => {
 exports.checkLoanExists = (req, res, next) => {
     const { id } = req.user[0];
     const { originalUrl } = req;
+    console.log('function: ', dbTable)
     const table = dbTable(originalUrl)
 
     app.get('db').check_loan_exits([table, id]).then(userLoans => {
         return (userLoans.length > 0) ? res.status(200).send('User already has a loan submitted') : next()
-    })
+    }).catch(err => console.log('check_loan_exists error: ', err))
 }
 
 exports.addLoanOffering = (req, res, next) => {
-    const { id } = req.user[0];
-    const { location } = req.body
-    const { type } = req.body.businesstype;
-    app.get('db').add_loan_offering([id, location, type]).then(loans => {
-        return (loans.length > 0 ) ? res.status(200).send('Thank you for submitting a loan offer')
-            : res.status(500).send('Issue submitting your loan offer, please try again later.')
-    })
+    // const { id } = req.user[0];
+    // const { location } = req.body
+    // const { type } = req.body.businesstype;
+    console.log('body: ', req.body)
+    // app.get('db').add_loan_offering([id, location, type]).then(loans => {
+    //     return (loans.length > 0 ) ? res.status(200).send('Thank you for submitting a loan offer')
+    //         : res.status(500).send('Issue submitting your loan offer, please try again later.')
+    // })
 }
 
 exports.addSeekingLoan = (req, res, next) => {
