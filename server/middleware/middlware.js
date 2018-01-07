@@ -61,3 +61,7 @@ exports.addLoanOffering = (req, res, next) => {
             : res.status(500).send('Issue submitting your loan offer, please try again later.')
     })
 }
+
+exports.addSeekingLoan = (req, res, next) => {
+
+}

@@ -54,7 +54,7 @@ app.post('/api/reset', checkEmail, updateUserToken, sendReset)
 app.get('/api/reset-approved/:token', checkToken)
 // LOAN ENDPOINTS =========================================
 app.post('/api/add-loan', checkLoanExists, addLoanOffering)
-app.post('/api/add-seeking-loan', (req, res, next) => {
+app.post('/api/add-seeking-loan', checkLoanExists, (req, res, next) => {
     console.log('add-seeking loan: ', req.body);
 //check email first, set the boolean on user table
     //input into seeking_loan table
