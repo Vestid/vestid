@@ -1,0 +1,1 @@
+exports.dbTable = (url) => ( (url.indexOf('add-loan')) ? 'offering_loans' : 'seeking_loans' )

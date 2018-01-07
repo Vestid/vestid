@@ -1,6 +1,8 @@
 const app = require('../server');
 const { parse, isPast } = require('date-fns')
 const random = require('rand-token')
+const url = require('url');
+const { dbTable } = require('../helpers');
 
 exports.checkAuthed = (req, res, next) => {
 	return (!req.isAuthenticated()) ? res.status(401).send("Unauthorized") : next()
@@ -42,8 +44,10 @@ exports.checkToken = (req, res, next) => {
 
 exports.checkLoanExists = (req, res, next) => {
     const { id } = req.user[0];
-    
-    app.get('db').check_loan_exits([id]).then(userLoans => {
+    const { originalUrl } = req;
+    const table = dbTable(originalUrl)
+
+    app.get('db').check_loan_exits([table, id]).then(userLoans => {
         return (userLoans.length > 0) ? res.status(200).send('User already has a loan submitted') : next()
     })
 }
