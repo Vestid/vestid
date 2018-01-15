@@ -25,21 +25,21 @@ massive(process.env.ESQL_DB)
 	.then(db => app.set('db', db))
 	.catch((err) => console.log("massive DB Error: ", err))
 
-// MIDDLEWARE POLICY ===================================
-const { checkAuthed, checkEmail, updateUserToken, checkToken, checkLoanExists, addLoanOffering } = require('./middleware/middlware')
 
-// EXPRESS SESSIONS =====================================
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  saveUninitialized: false,
-  resave: false
-}));
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(session({
+// EXPRESS SESSIONS =====================================
+    secret: process.env.SESSION_SECRET,
+    saveUninitialized: false,
+    resave: false
+}));
 
 // SERVER CONTROLLERS ==================================
 const { registerUser, successUser } = require('./controllers/userCtrl');
 const { sendReset } = require('./sendgrid');
+// MIDDLEWARE POLICY ===================================
+const { checkAuthed, checkEmail, updateUserToken, checkToken, checkLoanExists, addLoanOffering } = require('./middleware/middlware')
 
 
 // LOCAL AUTH ENDPOINTS ================================

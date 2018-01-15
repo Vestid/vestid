@@ -1,1 +1,1 @@
-select * from $1 where created_by = $2 ;
+select * from $1 where created_by = $2;

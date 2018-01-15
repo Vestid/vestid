@@ -1,8 +1,6 @@
 const app = require('../server');
 const { parse, isPast } = require('date-fns')
 const random = require('rand-token')
-const url = require('url');
-const { dbTable } = require('../helpers');
 
 exports.checkAuthed = (req, res, next) => {
 	return (!req.isAuthenticated()) ? res.status(401).send("Unauthorized") : next()
@@ -43,21 +41,23 @@ exports.checkToken = (req, res, next) => {
 }
 
 exports.checkLoanExists = (req, res, next) => {
-    const { id } = req.user[0];
+    let url = new RegExp('/add-loan/', 'gi');
+    // const { id } = req.user[0];
     const { originalUrl } = req;
-    console.log('function: ', dbTable)
-    const table = dbTable(originalUrl)
+    let table = (url.exec(originalUrl)) ? 'offering_loans' : 'seeking_loans'
+    const final = table.toString();
+    console.log('table: ', final)
 
-    app.get('db').check_loan_exits([table, id]).then(userLoans => {
+    console.log('DB STATUS : ', app.get('db'))
+    app.get('db').check_loan_exits([final, 1]).then(userLoans => {
         return (userLoans.length > 0) ? res.status(200).send('User already has a loan submitted') : next()
     }).catch(err => console.log('check_loan_exists error: ', err))
 }
 
 exports.addLoanOffering = (req, res, next) => {
-    // const { id } = req.user[0];
-    // const { location } = req.body
-    // const { type } = req.body.businesstype;
-    console.log('body: ', req.body)
+    const { id } = req.user[0];
+    const { location } = req.body
+    const { type } = req.body.businesstype;
     // app.get('db').add_loan_offering([id, location, type]).then(loans => {
     //     return (loans.length > 0 ) ? res.status(200).send('Thank you for submitting a loan offer')
     //         : res.status(500).send('Issue submitting your loan offer, please try again later.')
