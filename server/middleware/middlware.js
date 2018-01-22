@@ -41,19 +41,29 @@ exports.checkToken = (req, res, next) => {
 }
 
 exports.checkLoanExists = (req, res, next) => {
-    const { id } = req.user[0];
-    
-    app.get('db').check_loan_exits([id]).then(userLoans => {
+    let url = new RegExp('/add-loan/', 'gi');
+    // const { id } = req.user[0];
+    const { originalUrl } = req;
+    let table = (url.exec(originalUrl)) ? 'offering_loans' : 'seeking_loans'
+    const final = table.toString();
+    console.log('table: ', final)
+
+    console.log('DB STATUS : ', app.get('db'))
+    app.get('db').check_loan_exits([final, 1]).then(userLoans => {
         return (userLoans.length > 0) ? res.status(200).send('User already has a loan submitted') : next()
-    })
+    }).catch(err => console.log('check_loan_exists error: ', err))
 }
 
 exports.addLoanOffering = (req, res, next) => {
     const { id } = req.user[0];
     const { location } = req.body
     const { type } = req.body.businesstype;
-    app.get('db').add_loan_offering([id, location, type]).then(loans => {
-        return (loans.length > 0 ) ? res.status(200).send('Thank you for submitting a loan offer')
-            : res.status(500).send('Issue submitting your loan offer, please try again later.')
-    })
+    // app.get('db').add_loan_offering([id, location, type]).then(loans => {
+    //     return (loans.length > 0 ) ? res.status(200).send('Thank you for submitting a loan offer')
+    //         : res.status(500).send('Issue submitting your loan offer, please try again later.')
+    // })
+}
+
+exports.addSeekingLoan = (req, res, next) => {
+
 }

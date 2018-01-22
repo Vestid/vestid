@@ -3,7 +3,6 @@ angular.module('vestid').directive('navbarDir', () => {
       restrict: 'E',
 	    templateUrl: './app/components/navbar/navbar-tmpl.html',
 	    controller: ['$scope', 'authService', ($scope, authService) => {
-
 		    authService.currentUser().then(user => {
 				    if(user.data === 'Unauthorized') {
 					    $scope.keepLogin = true

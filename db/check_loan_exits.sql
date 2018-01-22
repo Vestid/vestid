@@ -1,1 +1,1 @@
-select * from offering_loans where created_by = $1 ;
+select * from $1 where created_by = $2;
