@@ -22,29 +22,29 @@ const passport = require('./auth/passport')
 
 // MASSIVE DB ==========================================
 massive(process.env.ESQL_DB)
-	.then(db => app.set('db', db))
-	.catch((err) => console.log("massive DB Error: ", err))
+    .then(db => app.set('db', db))
+    .catch((err) => console.log("massive DB Error: ", err))
 
+// MIDDLEWARE POLICY ===================================
+const { checkAuthed, checkEmail, updateUserToken, checkToken, checkLoanExists, addLoanOffering } = require('./middleware/middlware')
 
-app.use(passport.initialize())
-app.use(passport.session())
-app.use(session({
 // EXPRESS SESSIONS =====================================
+app.use(session({
     secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     resave: false
 }));
+app.use(passport.initialize())
+app.use(passport.session())
 
 // SERVER CONTROLLERS ==================================
 const { registerUser, successUser } = require('./controllers/userCtrl');
 const { sendReset } = require('./sendgrid');
-// MIDDLEWARE POLICY ===================================
-const { checkAuthed, checkEmail, updateUserToken, checkToken, checkLoanExists, addLoanOffering } = require('./middleware/middlware')
 
 
 // LOCAL AUTH ENDPOINTS ================================
 app.post('/api/login', passport.authenticate('local', {
-	successRedirect: '/success',
+    successRedirect: '/success',
 }));
 app.get('/success', checkAuthed, successUser)
 app.get('/api/current-user', checkAuthed)
@@ -54,7 +54,7 @@ app.post('/api/reset', checkEmail, updateUserToken, sendReset)
 app.get('/api/reset-approved/:token', checkToken)
 // LOAN ENDPOINTS =========================================
 app.post('/api/add-loan', checkLoanExists, addLoanOffering)
-app.post('/api/add-seeking-loan', checkLoanExists, (req, res, next) => {
+app.post('/api/add-seeking-loan', (req, res, next) => {
     console.log('add-seeking loan: ', req.body);
 //check email first, set the boolean on user table
     //input into seeking_loan table
